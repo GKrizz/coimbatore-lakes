@@ -6,44 +6,44 @@
     <title>Lakes of Coimbatore - Conservation & Commercial Initiatives</title>
     <style>
         :root {
-            --primary-color: #2e7d32; /* Forest Green */
-            --secondary-color: #4caf50; /* Lime Green */
-            --accent-color: #66bb6a; /* Light Green */
+            --primary-color: #2e7d32;
+            --secondary-color: #4caf50;
+            --accent-color: #66bb6a;
             --text-color: #333;
-            --light-bg: #e8f5e9; /* Very light green for backgrounds */
+            --light-bg: #e8f5e9;
             --white: #ffffff;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             color: var(--text-color);
             line-height: 1.6;
         }
-        
+
         header {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&fm=jpg&crop=entropy&cs=srgb&w=1200&h=400") center/cover no-repeat;
             color: var(--white);
             padding: 5rem 1rem;
             text-align: center;
         }
-        
+
         .header-content h1 {
             font-size: clamp(1.8rem, 5vw, 2.5rem);
             margin-bottom: 1rem;
         }
-        
+
         .header-content p {
             font-size: clamp(1rem, 3vw, 1.2rem);
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         nav {
             background-color: var(--primary-color);
             padding: 1rem 0;
@@ -51,7 +51,7 @@
             top: 0;
             z-index: 100;
         }
-        
+
         .nav-container {
             display: flex;
             justify-content: space-between;
@@ -60,20 +60,20 @@
             margin: 0 auto;
             padding: 0 1rem;
         }
-        
+
         .logo {
             font-weight: bold;
             font-size: clamp(1.2rem, 4vw, 1.5rem);
             color: var(--white);
             text-decoration: none;
         }
-        
+
         .nav-links {
             display: flex;
             list-style: none;
             gap: 1.5rem;
         }
-        
+
         .nav-links li a {
             color: var(--white);
             text-decoration: none;
@@ -81,11 +81,11 @@
             font-size: clamp(0.9rem, 2.5vw, 1rem);
             transition: color 0.3s;
         }
-        
+
         .nav-links a:hover {
             color: #e0e0e0;
         }
-        
+
         .hamburger {
             display: none;
             font-size: 1.8rem;
@@ -94,40 +94,40 @@
             background: none;
             border: none;
         }
-        
+
         .section {
             padding: clamp(2rem, 5vw, 3rem) 1rem;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .section-title {
             text-align: center;
             margin-bottom: 2rem;
         }
-        
+
         .section-title h2 {
             font-size: clamp(1.5rem, 4vw, 2rem);
             color: var(--primary-color);
             margin-bottom: 0.5rem;
         }
-        
+
         .section-title p {
             color: #777;
             max-width: 800px;
             margin: 0 auto;
             font-size: clamp(0.9rem, 2.5vw, 1rem);
         }
-        
+
         .lakes-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
         }
-        
+
         .lake-card {
             background-color: var(--white);
             border-radius: 8px;
@@ -135,33 +135,33 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
         }
-        
+
         .lake-card:hover {
             transform: translateY(-5px);
         }
-        
+
         .lake-image {
             height: 200px;
             background-size: cover;
             background-position: center;
         }
-        
+
         .lake-content {
             padding: 1rem;
         }
-        
+
         .lake-content h3 {
             margin-bottom: 0.5rem;
             color: var(--primary-color);
             font-size: clamp(1.2rem, 3vw, 1.4rem);
         }
-        
+
         .lake-content p {
             margin-bottom: 1rem;
             color: #666;
             font-size: clamp(0.85rem, 2.5vw, 0.95rem);
         }
-        
+
         .lake-content a {
             display: inline-block;
             background-color: var(--primary-color);
@@ -172,17 +172,17 @@
             font-size: clamp(0.8rem, 2.5vw, 0.9rem);
             transition: background-color 0.3s;
         }
-        
+
         .lake-content a:hover {
             background-color: var(--accent-color);
         }
-        
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 1.5rem;
         }
-        
+
         .service-card {
             background-color: var(--light-bg);
             border-radius: 8px;
@@ -191,29 +191,29 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        
+
         .service-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .service-icon {
             font-size: 2rem;
             color: var(--secondary-color);
             margin-bottom: 1rem;
         }
-        
+
         .service-card h3 {
             margin-bottom: 0.5rem;
             color: var(--primary-color);
             font-size: clamp(1.1rem, 3vw, 1.3rem);
         }
-        
+
         .service-card p {
             margin-bottom: 1rem;
             font-size: clamp(0.85rem, 2.5vw, 0.95rem);
         }
-        
+
         .service-card a {
             display: inline-block;
             background-color: var(--primary-color);
@@ -224,40 +224,319 @@
             font-size: clamp(0.8rem, 2.5vw, 0.9rem);
             transition: background-color 0.3s;
         }
-        
+
         .service-card a:hover {
             background-color: var(--accent-color);
         }
-        
+
+        /* Kiosk Spaces Section */
+        #kiosk-spaces {
+            display: none;
+            background-color: var(--light-bg);
+        }
+
+        #kiosk-spaces.active {
+            display: block;
+        }
+
+        .kiosk-lakes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .kiosk-lake-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .kiosk-lake-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .kiosk-lake-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .kiosk-lake-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .kiosk-lake-card:hover .kiosk-lake-overlay {
+            opacity: 1;
+        }
+
+        .kiosk-lake-overlay h3 {
+            color: var(--white);
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            border-radius: 12px;
+            max-width: 800px;
+            width: 90%;
+            padding: 1.5rem;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--primary-color);
+        }
+
+        .modal-image-gallery {
+            margin-bottom: 1rem;
+        }
+
+        .main-image-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+
+        .image-counter {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: var(--white);
+            padding: 0.3rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 0.5rem;
+            max-height: 200px;
+            overflow-y: auto;
+            padding: 0.5rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) #e0e0e0;
+        }
+
+        .thumbnail-grid::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .thumbnail-grid::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 4px;
+        }
+
+        .thumbnail-grid::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .thumbnail-grid::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-color);
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: 80px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease, border 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            opacity: 1;
+            border: 2px solid var(--primary-color);
+        }
+
+        .modal-details {
+            text-align: center;
+        }
+
+        .modal-shop {
+            font-size: clamp(1.5rem, 4vw, 2rem); /* Larger font size for shop number */
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .modal-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+        }
+
+        .modal-details p {
+            margin-bottom: 0.5rem;
+            color: #666;
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+        }
+
+        .modal-details a {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            margin-top: 1rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .modal-details a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Lightbox Styles for Magnified Image */
+        .image-lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -2rem;
+            right: -1rem;
+            font-size: 2rem;
+            color: var(--white);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .lightbox-close:hover {
+            color: var(--accent-color);
+        }
+
         .cta-section {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://media.istockphoto.com/id/2098373391/photo/scenic-view-of-lake-conroe-in-texas.webp?a=1&b=1&s=612x612&w=0&k=20&c=5nSKavhUU-K7icKBYWYORLHcOf1nlDTPnQFVF7QBzQE=") center/cover no-repeat;
             color: var(--white);
             text-align: center;
             padding: clamp(3rem, 8vw, 5rem) 1rem;
         }
-        
+
         .cta-content {
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .cta-content h2 {
             font-size: clamp(1.6rem, 4vw, 2.2rem);
             margin-bottom: 1rem;
         }
-        
+
         .cta-content p {
             margin-bottom: 1.5rem;
             font-size: clamp(0.95rem, 2.5vw, 1.1rem);
         }
-        
+
         .cta-buttons {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 1rem;
         }
-        
+
         .cta-button {
             display: inline-block;
             padding: 0.75rem 1.5rem;
@@ -265,55 +544,59 @@
             text-decoration: none;
             font-weight: 600;
             font-size: clamp(0.9rem, 2.5vw, 1rem);
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
-        
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
         .primary-btn {
             background-color: var(--primary-color);
             color: var(--white);
         }
-        
+
         .primary-btn:hover {
             background-color: var(--accent-color);
         }
-        
+
         .secondary-btn {
             background-color: transparent;
             color: var(--white);
             border: 2px solid var(--white);
         }
-        
+
         .secondary-btn:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
-        
+
         .form-section {
             background-color: var(--light-bg);
         }
-        
+
         .form-container {
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
         }
-        
+
         .form-content {
             flex: 1;
             min-width: 280px;
         }
-        
+
         .form-content h3 {
             color: var(--primary-color);
             margin-bottom: 1rem;
             font-size: clamp(1.2rem, 3vw, 1.5rem);
         }
-        
+
         .form-content p {
             margin-bottom: 1rem;
             color: #666;
             font-size: clamp(0.85rem, 2.5vw, 0.95rem);
         }
-        
+
         .contact-form {
             flex: 1;
             min-width: 280px;
@@ -323,24 +606,24 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
-        
+
         .contact-form iframe {
             border: none;
             width: 100%;
             height: clamp(500px, 100vw, 800px);
         }
-        
+
         .gallery-section {
             text-align: center;
         }
-        
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 1rem;
             margin-top: 2rem;
         }
-        
+
         .gallery-item {
             height: 200px;
             background-size: cover;
@@ -348,8 +631,13 @@
             border-radius: 6px;
             position: relative;
             overflow: hidden;
+            transition: transform 0.3s;
         }
-        
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
         .gallery-item::after {
             content: "";
             position: absolute;
@@ -361,28 +649,33 @@
             opacity: 0;
             transition: opacity 0.3s;
         }
-        
+
         .gallery-item:hover::after {
             opacity: 1;
         }
-        
+
         .testimonials-section {
             background-color: var(--light-bg);
         }
-        
+
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
         }
-        
+
         .testimonial-card {
             background-color: var(--white);
             border-radius: 8px;
             padding: 1.5rem;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
         }
-        
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
         .testimonial-text {
             font-style: italic;
             color: #555;
@@ -390,7 +683,7 @@
             position: relative;
             font-size: clamp(0.85rem, 2.5vw, 0.95rem);
         }
-        
+
         .testimonial-text::before {
             content: '"';
             font-size: 3rem;
@@ -400,12 +693,12 @@
             left: -0.5rem;
             z-index: -1;
         }
-        
+
         .testimonial-author {
             display: flex;
             align-items: center;
         }
-        
+
         .author-avatar {
             width: 50px;
             height: 50px;
@@ -414,24 +707,24 @@
             background-size: cover;
             background-position: center;
         }
-        
+
         .author-info h4 {
             color: var(--primary-color);
             margin-bottom: 0.3rem;
             font-size: clamp(0.9rem, 2.5vw, 1rem);
         }
-        
+
         .author-info p {
             color: #777;
             font-size: clamp(0.8rem, 2.5vw, 0.9rem);
         }
-        
+
         footer {
             background-color: #333;
             color: var(--white);
             padding: clamp(2rem, 5vw, 3rem) 1rem 1rem;
         }
-        
+
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -440,44 +733,44 @@
             gap: 2rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .footer-column h3 {
             color: var(--white);
             margin-bottom: 1rem;
             font-size: clamp(1rem, 3vw, 1.2rem);
         }
-        
+
         .footer-links {
             list-style: none;
         }
-        
+
         .footer-links li {
             margin-bottom: 0.5rem;
         }
-        
+
         .footer-links a {
             color: #bbb;
             text-decoration: none;
             font-size: clamp(0.85rem, 2.5vw, 0.95rem);
             transition: color 0.3s;
         }
-        
+
         .footer-links a:hover {
             color: var(--white);
         }
-        
+
         .footer-contact p {
             margin-bottom: 0.5rem;
             color: #bbb;
             font-size: clamp(0.85rem, 2.5vw, 0.95rem);
         }
-        
+
         .social-links {
             display: flex;
             gap: 1rem;
             margin-top: 1rem;
         }
-        
+
         .social-link {
             display: flex;
             align-items: center;
@@ -491,11 +784,11 @@
             font-size: 1.2rem;
             transition: background-color 0.3s;
         }
-        
+
         .social-link:hover {
             background-color: var(--secondary-color);
         }
-        
+
         .copyright {
             text-align: center;
             padding-top: 1rem;
@@ -503,12 +796,12 @@
             color: #888;
             font-size: clamp(0.8rem, 2.5vw, 0.9rem);
         }
-        
+
         @media (max-width: 768px) {
             .hamburger {
                 display: block;
             }
-            
+
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -520,43 +813,80 @@
                 padding: 1rem;
                 text-align: center;
             }
-            
+
             .nav-links.active {
                 display: flex;
             }
-            
+
             .nav-links li {
                 margin: 0.5rem 0;
             }
-            
+
             .header-content h1 {
                 font-size: clamp(1.5rem, 5vw, 2rem);
             }
-            
+
             .section {
                 padding: 2rem 1rem;
             }
-            
+
             .lakes-grid,
             .services-grid,
-            .testimonials-grid {
+            .testimonials-grid,
+            .kiosk-lakes-grid {
                 grid-template-columns: 1fr;
             }
-            
+
+            .kiosk-lake-card {
+                width: 100%;
+            }
+
+            .modal-image-gallery .main-image-container {
+                height: 200px;
+            }
+
+            .thumbnail-grid {
+                grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+                max-height: 150px;
+            }
+
+            .thumbnail {
+                height: 60px;
+            }
+
+            .modal-shop {
+                font-size: clamp(1.2rem, 3vw, 1.5rem); /* Adjusted for smaller screens */
+            }
+
             .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
-            
+
             .form-container {
                 flex-direction: column;
             }
-            
+
             .contact-form iframe {
                 height: 500px;
             }
-            
+
             .cta-content h2 {
                 font-size: clamp(1.4rem, 4vw, 1.8rem);
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 1rem;
+            }
+
+            .lightbox-content {
+                max-width: 95%;
+                max-height: 80%;
+            }
+
+            .lightbox-close {
+                top: -1.5rem;
+                right: 0;
             }
         }
     </style>
@@ -568,7 +898,7 @@
             <p>Preserving our natural heritage through conservation and sustainable commercial initiatives</p>
         </div>
     </header>
-    
+
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">Coimbatore Lakes</a>
@@ -583,62 +913,56 @@
             </ul>
         </div>
     </nav>
-    
+
     <section id="lakes" class="section">
         <div class="container">
             <div class="section-title">
                 <h2>Explore Our Lakes</h2>
                 <p>Discover the natural beauty and ecological importance of Coimbatore's lake systems</p>
             </div>
-            
             <div class="lakes-grid">
                 <div class="lake-card">
-                    <div class="lake-image" style="background-image: url('https://media.istockphoto.com/id/2118319524/photo/detroit-point-tranquil-spring-sunrise.webp?a=1&b=1&s=612x612&w=0&k=20&c=a-FRr7kWuf27ajq5zBkeE_wrXh_2EmvS4Jqn-Jmihws=');"></div>
+                    <div class="lake-image" style="background-image: url('Kumarasamy_lake_1.jpg');"></div>
                     <div class="lake-content">
-                        <h3>Ukkadam Lake</h3>
+                        <h3>Kumarasamy Lake</h3>
                         <p>One of the largest lakes in Coimbatore, supporting diverse flora and fauna with recent restoration efforts.</p>
                         <a href="#">Learn More</a>
                     </div>
                 </div>
-                
                 <div class="lake-card">
-                    <div class="lake-image" style="background-image: url('https://media.istockphoto.com/id/2191237499/photo/residential-area-of-lake-norman-from-sky-over-davidson-north-carolina.webp?a=1&b=1&s=612x612&w=0&k=20&c=xjM8e8U0jte4imHPExj9Jygd5OGVs57bc68LcHpaq6o=');"></div>
+                    <div class="lake-image" style="background-image: url('Krishnampathy lake_Pic.jpg');"></div>
                     <div class="lake-content">
-                        <h3>Singanallur Lake</h3>
+                        <h3>Krishnampathy Lake</h3>
                         <p>A bird sanctuary and ecological hotspot, home to numerous migratory birds and local wildlife.</p>
                         <a href="#">Learn More</a>
                     </div>
                 </div>
-                
                 <div class="lake-card">
-                    <div class="lake-image" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&fm=jpg&crop=entropy&cs=srgb&w=1200&h=400');"></div>
+                    <div class="lake-image" style="background-image: url('Periyakulam Lake_pic.jpg');"></div>
                     <div class="lake-content">
-                        <h3>Perur Lake</h3>
+                        <h3>Periyakulam Lake</h3>
                         <p>A historically significant lake with cultural connections to the nearby Perur Temple, offering serene landscapes.</p>
                         <a href="#">Learn More</a>
                     </div>
                 </div>
-                
                 <div class="lake-card">
-                    <div class="lake-image" style="background-image: url('https://media.istockphoto.com/id/2167626766/photo/couple-paddle-sup-boards-across-mountain-lake-whistler.webp?a=1&b=1&s=612x612&w=0&k=20&c=LQNB6_sz_UV8KUhkL6WQJ14KWNS4xtwg5Wja5zFy9Ug=');"></div>
+                    <div class="lake-image" style="background-image: url('Kurichi_2.jpg');"></div>
                     <div class="lake-content">
                         <h3>Kurichi Lake</h3>
                         <p>Recently renovated urban lake with walking paths, offering recreational opportunities for locals.</p>
                         <a href="#">Learn More</a>
                     </div>
                 </div>
-                
                 <div class="lake-card">
-                    <div class="lake-image" style="background-image: url('https://media.istockphoto.com/id/2166773378/photo/autumn-on-lake-gosau-in-salzkammergut-austria.webp?a=1&b=1&s=612x612&w=0&k=20&c=4d_MxjpYeZjjFix6JGTgqCr8fyOjXqFWK_jR0b_El5k=');"></div>
+                    <div class="lake-image" style="background-image: url('/Valankulam lake_1.png');"></div>
                     <div class="lake-content">
                         <h3>Valankulam Lake</h3>
                         <p>Part of the Smart Cities Mission transformation, featuring modern amenities and beautiful landscapes.</p>
                         <a href="#">Learn More</a>
                     </div>
                 </div>
-                
                 <div class="lake-card">
-                    <div class="lake-image" style="background-image: url('https://images.unsplash.com/photo-1557456170-0cf4f4d0d362?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFrZXxlbnwwfHwwfHx8MA%3D%3D');"></div>
+                    <div class="lake-image" style="background-image: url('/Selvachinthamani lake.jpg');"></div>
                     <div class="lake-content">
                         <h3>Selvachinthamani Lake</h3>
                         <p>A revitalized urban lake with recreational facilities and educational ecological zones.</p>
@@ -648,50 +972,44 @@
             </div>
         </div>
     </section>
-    
+
     <section id="services" class="section">
         <div class="container">
             <div class="section-title">
                 <h2>Our Services</h2>
                 <p>Discover the various services and facilities available at Coimbatore's lakes</p>
             </div>
-            
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">🏪</div>
                     <h3>Kiosk Spaces</h3>
                     <p>Operate a business in our eco-friendly kiosks located at strategic points around the lakes.</p>
-                    <a href="#contact">Inquire Now</a>
+                    <a href="#kiosk-spaces" class="kiosk-toggle">Explore Kiosks</a>
                 </div>
-                
                 <div class="service-card">
                     <div class="service-icon">🎭</div>
                     <h3>Event Spaces</h3>
                     <p>Host sustainable events against the backdrop of Coimbatore's scenic lakes.</p>
                     <a href="#contact">Book Now</a>
                 </div>
-                
                 <div class="service-card">
                     <div class="service-icon">🏢</div>
                     <h3>Rental Spaces</h3>
                     <p>Rent commercial spaces for long-term business operations with lake views.</p>
                     <a href="#contact">Explore Options</a>
                 </div>
-                
                 <div class="service-card">
                     <div class="service-icon">🎣</div>
                     <h3>Recreational Activities</h3>
                     <p>Enjoy boating, fishing, and other water-based activities at designated lakes.</p>
                     <a href="#contact">Learn More</a>
                 </div>
-                
                 <div class="service-card">
                     <div class="service-icon">🌱</div>
                     <h3>Conservation Programs</h3>
                     <p>Participate in our ongoing conservation efforts to preserve these vital ecosystems.</p>
                     <a href="#contact">Join Us</a>
                 </div>
-                
                 <div class="service-card">
                     <div class="service-icon">🎓</div>
                     <h3>Educational Tours</h3>
@@ -701,7 +1019,78 @@
             </div>
         </div>
     </section>
-    
+
+    <section id="kiosk-spaces" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kiosk Spaces at Our Lakes</h2>
+                <p>Select a lake to view available kiosk spaces and rental details</p>
+            </div>
+            <div class="kiosk-lakes-grid">
+                <div class="kiosk-lake-card" data-lake="Kumarasamy">
+                    <div class="kiosk-lake-image" style="background-image: url('/Kumarasamy_lake_1.jpg');"></div>
+                    <div class="kiosk-lake-overlay">
+                        <h3>Kumarasamy Lake</h3>
+                    </div>
+                </div>
+                <div class="kiosk-lake-card" data-lake="Krishnampathy">
+                    <div class="kiosk-lake-image" style="background-image: url('/Krishnampathy lake_Pic.jpg');"></div>
+                    <div class="kiosk-lake-overlay">
+                        <h3>Krishnampathy Lake</h3>
+                    </div>
+                </div>
+                <div class="kiosk-lake-card" data-lake="Periyakulam">
+                    <div class="kiosk-lake-image" style="background-image: url('/Periyakulam Lake_pic.jpg');"></div>
+                    <div class="kiosk-lake-overlay">
+                        <h3>Periyakulam Lake</h3>
+                    </div>
+                </div>
+                <div class="kiosk-lake-card" data-lake="Kurichi">
+                    <div class="kiosk-lake-image" style="background-image: url('/Kurichi_2.jpg');"></div>
+                    <div class="kiosk-lake-overlay">
+                        <h3>Kurichi Lake</h3>
+                    </div>
+                </div>
+                <div class="kiosk-lake-card" data-lake="Valankulam">
+                    <div class="kiosk-lake-image" style="background-image: url('/Valankulam lake_1.png');"></div>
+                    <div class="kiosk-lake-overlay">
+                        <h3>Valankulam Lake</h3>
+                    </div>
+                </div>
+                <div class="kiosk-lake-card" data-lake="Selvachinthamani">
+                    <div class="kiosk-lake-image" style="background-image: url('/Selvachinthamani lake.jpg');"></div>
+                    <div class="kiosk-lake-overlay">
+                        <h3>Selvachinthamani Lake</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="kiosk-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">×</span>
+            <div class="modal-image-gallery">
+                <div class="main-image-container" id="main-image"></div>
+                <div class="thumbnail-grid" id="thumbnail-grid"></div>
+            </div>
+            <div class="modal-details">
+                <div class="modal-shop" id="modal-shop"></div> <!-- Moved to top with new class -->
+                <h3 id="modal-title"></h3>
+                <p id="modal-sqft"></p>
+                <p id="modal-rental"></p>
+                <a href="#contact" class="inquire-now">Inquire Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="image-lightbox" class="image-lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">×</span>
+            <img id="lightbox-image" class="lightbox-image" src="" alt="Magnified Image">
+        </div>
+    </div>
+
     <section id="events" class="cta-section">
         <div class="cta-content">
             <h2>Host Your Next Event at Our Lakes</h2>
@@ -712,14 +1101,13 @@
             </div>
         </div>
     </section>
-    
+
     <section id="rentals" class="section">
         <div class="container">
             <div class="section-title">
                 <h2>Commercial Spaces for Rent</h2>
                 <p>Discover business opportunities around Coimbatore's lakes with our various rental options</p>
             </div>
-            
             <div class="lakes-grid">
                 <div class="lake-card">
                     <div class="lake-image" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&fm=jpg&crop=entropy&cs=srgb&w=400&h=200');"></div>
@@ -730,7 +1118,6 @@
                         <a href="#contact">Check Availability</a>
                     </div>
                 </div>
-                
                 <div class="lake-card">
                     <div class="lake-image" style="background-image: url('https://plus.unsplash.com/premium_photo-1669741908255-4c4132306000?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bGFrZXxlbnwwfHwwfHx8MA%3D%3D');"></div>
                     <div class="lake-content">
@@ -740,7 +1127,6 @@
                         <a href="#contact">Inquire Now</a>
                     </div>
                 </div>
-                
                 <div class="lake-card">
                     <div class="lake-image" style="background-image: url('https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bGFrZXxlbnwwfHwwfHx8MA%3D%3D');"></div>
                     <div class="lake-content">
@@ -750,7 +1136,6 @@
                         <a href="#contact">Learn More</a>
                     </div>
                 </div>
-                
                 <div class="lake-card">
                     <div class="lake-image" style="background-image: url('https://images.unsplash.com/photo-1439066290691-510066268af5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGFrZXxlbnwwfHwwfHx8MA%3D%3D');"></div>
                     <div class="lake-content">
@@ -763,14 +1148,13 @@
             </div>
         </div>
     </section>
-    
+
     <section id="gallery" class="section gallery-section">
         <div class="container">
             <div class="section-title">
                 <h2>Lake Gallery</h2>
                 <p>Explore the beauty and transformation of Coimbatore's lakes</p>
             </div>
-            
             <div class="gallery-grid">
                 <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1583244685026-d8519b5e3d21?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bGFrZXxlbnwwfHwwfHx8MA%3D%3D');"></div>
                 <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1516132006923-6cf348e5dee2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bGFrZXxlbnwwfHwwfHx8MA%3D%3D');"></div>
@@ -783,14 +1167,13 @@
             </div>
         </div>
     </section>
-    
+
     <section id="testimonials" class="section testimonials-section">
         <div class="container">
             <div class="section-title">
                 <h2>Success Stories</h2>
                 <p>Hear from businesses and event organizers who have utilized our lake spaces</p>
             </div>
-            
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-text">
@@ -804,7 +1187,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="testimonial-card">
                     <div class="testimonial-text">
                         <p>We hosted our corporate team-building event at the Ukkadam Lake pavilion. The natural setting created a relaxed atmosphere, and the facilities were excellent. All our employees are still talking about it!</p>
@@ -817,7 +1199,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="testimonial-card">
                     <div class="testimonial-text">
                         <p>Our weekend craft market kiosk at Singanallur Lake has been a game-changer for our small business. The eco-conscious visitors align perfectly with our sustainable product line.</p>
@@ -833,14 +1214,13 @@
             </div>
         </div>
     </section>
-    
+
     <section id="contact" class="section form-section">
         <div class="container">
             <div class="section-title">
                 <h2>Contact Us</h2>
                 <p>Inquire about our services or book a space at one of Coimbatore's lakes</p>
             </div>
-            
             <div class="form-container">
                 <div class="form-content">
                     <h3>Get in Touch</h3>
@@ -848,7 +1228,6 @@
                     <p>Fill out the form below, and we'll get back to you within 24-48 hours with all the information you need.</p>
                     <p>For urgent inquiries, please call us at <strong>+91 422 123 4567</strong>.</p>
                 </div>
-                
                 <div class="contact-form">
                     <iframe src="https://forms.gle/P6Exe286TANoDC9y8" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                 </div>
@@ -862,7 +1241,6 @@
                 <h3>About Us</h3>
                 <p>We are dedicated to preserving Coimbatore's lakes while promoting sustainable commercial opportunities for businesses and communities.</p>
             </div>
-            
             <div class="footer-column">
                 <h3>Quick Links</h3>
                 <ul class="footer-links">
@@ -873,7 +1251,6 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
-            
             <div class="footer-column">
                 <h3>Contact Info</h3>
                 <div class="footer-contact">
@@ -889,7 +1266,6 @@
                 </div>
             </div>
         </div>
-        
         <div class="copyright">
             <p>© 2025 Coimbatore Lakes. All rights reserved.</p>
         </div>
@@ -898,17 +1274,235 @@
     <script>
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
+        const kioskToggle = document.querySelector('.kiosk-toggle');
+        const kioskSection = document.querySelector('#kiosk-spaces');
+        const modal = document.querySelector('#kiosk-modal');
+        const modalClose = document.querySelector('.modal-close');
+        const modalTitle = document.querySelector('#modal-title');
+        const modalSqft = document.querySelector('#modal-sqft');
+        const modalRental = document.querySelector('#modal-rental');
+        const modalShop = document.querySelector('#modal-shop');
+        const mainImage = document.querySelector('#main-image');
+        const thumbnailGrid = document.querySelector('#thumbnail-grid');
+        const imageLightbox = document.querySelector('#image-lightbox');
+        const lightboxImage = document.querySelector('#lightbox-image');
+        const lightboxClose = document.querySelector('.lightbox-close');
 
+        // Hamburger menu toggle
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
         });
 
-        // Close mobile menu when a link is clicked
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 hamburger.textContent = '☰';
+            });
+        });
+
+        // Kiosk section toggle
+        kioskToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            kioskSection.classList.toggle('active');
+            kioskSection.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Kiosk details data
+        const kioskData = {
+            Kumarasamy: {
+                images: [
+                    '/KS-O-1, S. NO. 3...jpeg',
+                    '/KS-O-1, S. NO. 3..jpeg',
+                    '/KS-O-1, S. NO. 3.jpeg',
+                    '/KS-O-2, S. NO. 4..jpeg',
+                    '/KS-O-2, S. NO. 4.jpeg',
+                    '/KS-O-3, S. NO. 5.jpeg',
+                ],
+                sqft: '150 sq.ft',
+                rental: '₹10,000/month',
+                shop: 'Shop #K1'
+            },
+            Krishnampathy: {
+                images: [
+                    '/Kr-1 S.NO.1.jpeg',
+                    '/Kr-O-1 S.NO.2.jpeg'
+                ],
+                sqft: '120 sq.ft',
+                rental: '₹8,000/month',
+                shop: 'Shop #K2'
+            },
+            Periyakulam: {
+                images: [
+                    'images/P-H-1,S.No. 17.jpeg',
+                    'images/P-H-1,S.No. 17..jpeg',
+                    'images/P-H-1,S.No. 17...jpeg',
+                    'images/P-H-1,S.No. 17.,.jpeg',
+                    'images/P-H-1,S.No. 17,.jpeg',
+                    'images/P-H-1,S.No. 17,..jpeg',
+                    'images/P-H-1, S.No.17.jpeg',
+                    'images/P-H-1, S.No.17..jpeg',
+                    'images/P-H-1, S.No.17...jpeg',
+                    'images/P-H-1, S.No.17....jpeg',
+                    'images/P-H-1, S.No. 17.jpeg',
+                    'images/P-H-1, S.No. 17..jpeg',
+                    'images/P-H-1, S.No. 17...jpeg',
+                    'images/P-H-1, S.No. 17.,.jpeg',
+                    'images/P-H-1, S.No. 17.,,.jpeg',
+                    'images/P-H-1, S.No. 17,.jpeg',
+                    'images/P-H-1, S.No. 17,..jpeg',
+                    'images/P-H-1, S.No. 17,...jpeg',
+                    'images/P-H-1, S.No. 17,,.jpeg',
+                ],
+                sqft: '180 sq.ft',
+                rental: '₹12,000/month',
+                shop: 'Shop #K3'
+            },
+            Kurichi: {
+                images: [
+                    '/K1-S.No. 18_1.jpeg',
+                    '/K1-S.No. 18_2.jpeg',
+                    '/K1-S.No. 18_3.jpeg',
+                    '/K1-S.No. 18_4.jpeg',
+                    '/K1-S.No. 18_5.jpeg',
+                    '/K1-S.No. 18_7.jpeg',
+                    '/K1-S.No. 18_8.jpeg',
+                    '/K1-S.No. 18_9.jpeg',
+                    '/K1-S.No. 18_10.jpeg',
+                ],
+                sqft: '140 sq.ft',
+                rental: '₹9,000/month',
+                shop: 'Shop #K4'
+            },
+            Valankulam: {
+                images: [
+                    '/v1.jpeg',
+                    '/v2.jpeg',
+                    '/v3.jpeg',
+                    '/v4.jpeg',
+                    '/v5.jpeg',
+                    '/v6.jpeg',
+                    '/v7.jpeg',
+                    '/v8.jpeg',
+                    '/v9.jpeg',
+                    '/v10.jpeg',
+                    '/v11.jpeg',
+                    '/v12.jpeg',
+                    '/v13.jpeg',
+                    '/v14.jpeg',
+                    '/v15.jpeg',
+                ],
+                sqft: '160 sq.ft',
+                rental: '₹11,000/month',
+                shop: 'Shop #K5'
+            },
+            Selvachinthamani: {
+                images: [
+                    '/s1.jpeg',
+                    '/s2.jpg',
+                    '/s3.jpeg',
+                    '/s4.jpg',
+                    '/s5.jpeg',
+                    '/s6.jpg',
+                    '/s7.jpeg',
+                    '/s8.jpg',
+                    '/s9.jpeg',
+                    '/s10.jpg',
+                ],
+                sqft: '130 sq.ft',
+                rental: '₹8,500/month',
+                shop: 'Shop #K6'
+            }
+        };
+
+        // Open modal on lake card click
+        document.querySelectorAll('.kiosk-lake-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const lake = card.dataset.lake;
+                const data = kioskData[lake];
+
+                // Populate modal
+                modalShop.textContent = data.shop; // Populate shop number at the top
+                modalTitle.textContent = `${lake} Lake Kiosk`;
+                modalSqft.textContent = `Size: ${data.sqft}`;
+                modalRental.textContent = `Rental Value: ${data.rental}`;
+
+                // Populate main image and thumbnails
+                mainImage.style.backgroundImage = `url('${data.images[0]}')`;
+                mainImage.dataset.src = data.images[0]; // Store image URL for lightbox
+                mainImage.innerHTML = `<span class="image-counter">1/${data.images.length}</span>`;
+
+                thumbnailGrid.innerHTML = '';
+                data.images.forEach((image, index) => {
+                    const thumbDiv = document.createElement('div');
+                    thumbDiv.classList.add('thumbnail');
+                    if (index === 0) thumbDiv.classList.add('active');
+                    thumbDiv.style.backgroundImage = `url('${image}')`;
+                    thumbDiv.dataset.src = image;
+                    thumbDiv.dataset.index = index;
+                    thumbnailGrid.appendChild(thumbDiv);
+                });
+
+                modal.classList.add('active');
+            });
+        });
+
+        // Thumbnail click handler
+        thumbnailGrid.addEventListener('click', (e) => {
+            if (e.target.classList.contains('thumbnail')) {
+                const imageSrc = e.target.dataset.src;
+                const index = parseInt(e.target.dataset.index) + 1;
+                const totalImages = e.target.parentElement.children.length;
+
+                // Update main image
+                mainImage.style.backgroundImage = `url('${imageSrc}')`;
+                mainImage.dataset.src = imageSrc;
+                mainImage.innerHTML = `<span class="image-counter">${index}/${totalImages}</span>`;
+
+                // Update active thumbnail
+                thumbnailGrid.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+                e.target.classList.add('active');
+            }
+        });
+
+        // Open lightbox on main image click
+        mainImage.addEventListener('click', () => {
+            const imageSrc = mainImage.dataset.src;
+            lightboxImage.src = imageSrc;
+            imageLightbox.classList.add('active');
+        });
+
+        // Close modal
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        // Close modal on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Close lightbox
+        lightboxClose.addEventListener('click', () => {
+            imageLightbox.classList.remove('active');
+        });
+
+        // Close lightbox on outside click
+        imageLightbox.addEventListener('click', (e) => {
+            if (e.target === imageLightbox) {
+                imageLightbox.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll for Inquire Now button
+        document.querySelectorAll('.inquire-now').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.remove('active'); // Close the modal
+                const contactSection = document.querySelector('#contact');
+                contactSection.scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
