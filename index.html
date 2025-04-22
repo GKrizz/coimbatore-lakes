@@ -174,7 +174,7 @@
         }
 
         .lake-content a:hover {
-            background-color: var(--accent-color);
+            background-color:--accent-color;
         }
 
         .services-grid {
@@ -423,10 +423,11 @@
         }
 
         .modal-shop {
-            font-size: clamp(1.5rem, 4vw, 2rem); /* Larger font size for shop number */
+            font-size: clamp(1.5rem, 4vw, 2rem);
             color: var(--primary-color);
             font-weight: 700;
             margin-bottom: 1rem;
+            text-transform: uppercase; /* Emphasize shop name */
         }
 
         .modal-details h3 {
@@ -855,7 +856,7 @@
             }
 
             .modal-shop {
-                font-size: clamp(1.2rem, 3vw, 1.5rem); /* Adjusted for smaller screens */
+                font-size: clamp(1.2rem, 3vw, 1.5rem);
             }
 
             .gallery-grid {
@@ -1075,7 +1076,7 @@
                 <div class="thumbnail-grid" id="thumbnail-grid"></div>
             </div>
             <div class="modal-details">
-                <div class="modal-shop" id="modal-shop"></div> <!-- Moved to top with new class -->
+                <div class="modal-shop" id="modal-shop"></div> <!-- Displays dynamic shop name -->
                 <h3 id="modal-title"></h3>
                 <p id="modal-sqft"></p>
                 <p id="modal-rental"></p>
@@ -1312,106 +1313,89 @@
         const kioskData = {
             Kumarasamy: {
                 images: [
-                    '/KS-O-1, S. NO. 3...jpeg',
-                    '/KS-O-1, S. NO. 3..jpeg',
-                    '/KS-O-1, S. NO. 3.jpeg',
-                    '/KS-O-2, S. NO. 4..jpeg',
-                    '/KS-O-2, S. NO. 4.jpeg',
-                    '/KS-O-3, S. NO. 5.jpeg',
+                    { src: '/KS-O-1, S. NO. 3...jpeg', shop: 'KS-O-1' },
+                    { src: '/KS-O-1, S. NO. 3..jpeg', shop: 'KS-O-1' },
+                    { src: '/KS-O-1, S. NO. 3.jpeg', shop: 'KS-O-1' },
+                    { src: '/KS-O-2, S. NO. 4..jpeg', shop: 'KS-O-2' },
+                    { src: '/KS-O-2, S. NO. 4.jpeg', shop: 'KS-O-2' },
+                    { src: '/KS-O-3, S. NO. 5.jpeg', shop: 'KS-O-3' },
                 ],
-                sqft: '150 sq.ft',
-                rental: '₹10,000/month',
-                shop: 'Shop #K1'
+                sqft: '36 sq.ft',
+                rental: 'Contact for pricing'
             },
             Krishnampathy: {
                 images: [
-                    '/Kr-1 S.NO.1.jpeg',
-                    '/Kr-O-1 S.NO.2.jpeg'
+                    { src: '/Kr-1 S.NO.1.jpeg', shop: 'KR1' },
+                    { src: '/Kr-O-1 S.NO.2.jpeg', shop: 'KR-O-1' }
                 ],
-                sqft: '120 sq.ft',
-                rental: '₹8,000/month',
-                shop: 'Shop #K2'
+                sqft: '36 sq.ft',
+                rental: '₹25,000/month'
             },
             Periyakulam: {
                 images: [
-                    'images/P-H-1,S.No. 17.jpeg',
-                    'images/P-H-1,S.No. 17..jpeg',
-                    'images/P-H-1,S.No. 17...jpeg',
-                    'images/P-H-1,S.No. 17.,.jpeg',
-                    'images/P-H-1,S.No. 17,.jpeg',
-                    'images/P-H-1,S.No. 17,..jpeg',
-                    'images/P-H-1, S.No.17.jpeg',
-                    'images/P-H-1, S.No.17..jpeg',
-                    'images/P-H-1, S.No.17...jpeg',
-                    'images/P-H-1, S.No.17....jpeg',
-                    'images/P-H-1, S.No. 17.jpeg',
-                    'images/P-H-1, S.No. 17..jpeg',
-                    'images/P-H-1, S.No. 17...jpeg',
-                    'images/P-H-1, S.No. 17.,.jpeg',
-                    'images/P-H-1, S.No. 17.,,.jpeg',
-                    'images/P-H-1, S.No. 17,.jpeg',
-                    'images/P-H-1, S.No. 17,..jpeg',
-                    'images/P-H-1, S.No. 17,...jpeg',
-                    'images/P-H-1, S.No. 17,,.jpeg',
+                    { src: 'images/P2D.jpg', shop: 'P2D' },
+                    { src: 'images/P1B.jpg', shop: 'P1B' },
+                    { src: 'images/P1D.jpg', shop: 'P1D' },
+                    { src: 'images/P2A.jpg', shop: 'P2A' },
+                    { src: 'images/P1A.jpg', shop: 'P1A' },
+                    { src: 'images/Floating_Deck.jpg', shop: 'FLOATING DECK' },
+                    { src: 'images/P3A.jpg', shop: 'P3A' },
+                    { src: 'images/P4A.jpg', shop: 'P4A' },
+                    { src: 'images/P-A-1.jpg', shop: 'P-A-1' },
+                    { src: 'images/P-A-2.jpg', shop: 'P-A-2' },
+                    { src: 'images/P-F-1.jpg', shop: 'P-F-1' },
+                    { src: 'images/P-H-1.jpg', shop: 'P-H-1' }
                 ],
-                sqft: '180 sq.ft',
-                rental: '₹12,000/month',
-                shop: 'Shop #K3'
+                sqft: '80-224 sq.ft',
+                rental: '₹25,000-₹40,000/month'
             },
             Kurichi: {
                 images: [
-                    '/K1-S.No. 18_1.jpeg',
-                    '/K1-S.No. 18_2.jpeg',
-                    '/K1-S.No. 18_3.jpeg',
-                    '/K1-S.No. 18_4.jpeg',
-                    '/K1-S.No. 18_5.jpeg',
-                    '/K1-S.No. 18_7.jpeg',
-                    '/K1-S.No. 18_8.jpeg',
-                    '/K1-S.No. 18_9.jpeg',
-                    '/K1-S.No. 18_10.jpeg',
+                    { src: '/K1-S.No. 18_1.jpeg', shop: 'K1' },
+                    { src: '/K1-S.No. 18_2.jpeg', shop: 'K1' },
+                    { src: '/K1-S.No. 18_3.jpeg', shop: 'K1' },
+                    { src: '/K2-S.No. 19.jpeg', shop: 'K2' },
+                    { src: '/K3-S.No. 20.jpeg', shop: 'K3' },
+                    { src: '/K4-S.No. 21.jpeg', shop: 'K4' }
                 ],
-                sqft: '140 sq.ft',
-                rental: '₹9,000/month',
-                shop: 'Shop #K4'
+                sqft: '200-330 sq.ft',
+                rental: '₹35,000-₹45,000/month'
             },
             Valankulam: {
                 images: [
-                    '/v1.jpeg',
-                    '/v2.jpeg',
-                    '/v3.jpeg',
-                    '/v4.jpeg',
-                    '/v5.jpeg',
-                    '/v6.jpeg',
-                    '/v7.jpeg',
-                    '/v8.jpeg',
-                    '/v9.jpeg',
-                    '/v10.jpeg',
-                    '/v11.jpeg',
-                    '/v12.jpeg',
-                    '/v13.jpeg',
-                    '/v14.jpeg',
-                    '/v15.jpeg',
+                    { src: '/v1.jpeg', shop: 'V2A' },
+                    { src: '/v2.jpeg', shop: 'V1A' },
+                    { src: '/v3.jpeg', shop: 'V3A' },
+                    { src: '/v4.jpeg', shop: 'V4A' },
+                    { src: '/v5.jpeg', shop: 'V5A' },
+                    { src: '/v6.jpeg', shop: 'V6A' },
+                    { src: '/v7.jpeg', shop: 'V7A' },
+                    { src: '/v8.jpeg', shop: 'V8A' },
+                    { src: '/v9.jpeg', shop: 'V2B' },
+                    { src: '/v10.jpeg', shop: 'V1B' },
+                    { src: '/v11.jpeg', shop: 'V1C' },
+                    { src: '/v12.jpeg', shop: 'V2C' },
+                    { src: '/v13.jpeg', shop: 'V1F' },
+                    { src: '/v14.jpeg', shop: 'V2F' },
+                    { src: '/v15.jpeg', shop: 'V-FC-1' },
+                    { src: '/v16.jpeg', shop: 'V-FC-2' },
+                    { src: '/v17.jpeg', shop: 'V-FC-3' },
+                    { src: '/v18.jpeg', shop: 'V-FC-4' }
                 ],
-                sqft: '160 sq.ft',
-                rental: '₹11,000/month',
-                shop: 'Shop #K5'
+                sqft: '80-230 sq.ft',
+                rental: '₹25,000-₹35,000/month'
             },
             Selvachinthamani: {
                 images: [
-                    '/s1.jpeg',
-                    '/s2.jpg',
-                    '/s3.jpeg',
-                    '/s4.jpg',
-                    '/s5.jpeg',
-                    '/s6.jpg',
-                    '/s7.jpeg',
-                    '/s8.jpg',
-                    '/s9.jpeg',
-                    '/s10.jpg',
+                    { src: '/s1.jpeg', shop: 'S1' },
+                    { src: '/s2.jpg', shop: 'S2' },
+                    { src: '/s3.jpeg', shop: 'S3' },
+                    { src: '/s4.jpg', shop: 'S4' },
+                    { src: '/s5.jpeg', shop: 'S5' },
+                    { src: '/s6.jpg', shop: 'S10' }
                 ],
-                sqft: '130 sq.ft',
-                rental: '₹8,500/month',
-                shop: 'Shop #K6'
+                sqft: '160 sq.ft',
+                rental: '₹30,000/month'
             }
         };
 
@@ -1422,14 +1406,14 @@
                 const data = kioskData[lake];
 
                 // Populate modal
-                modalShop.textContent = data.shop; // Populate shop number at the top
+                modalShop.textContent = data.images[0].shop; // Set initial shop name
                 modalTitle.textContent = `${lake} Lake Kiosk`;
                 modalSqft.textContent = `Size: ${data.sqft}`;
                 modalRental.textContent = `Rental Value: ${data.rental}`;
 
                 // Populate main image and thumbnails
-                mainImage.style.backgroundImage = `url('${data.images[0]}')`;
-                mainImage.dataset.src = data.images[0]; // Store image URL for lightbox
+                mainImage.style.backgroundImage = `url('${data.images[0].src}')`;
+                mainImage.dataset.src = data.images[0].src; // Store image URL for lightbox
                 mainImage.innerHTML = `<span class="image-counter">1/${data.images.length}</span>`;
 
                 thumbnailGrid.innerHTML = '';
@@ -1437,8 +1421,9 @@
                     const thumbDiv = document.createElement('div');
                     thumbDiv.classList.add('thumbnail');
                     if (index === 0) thumbDiv.classList.add('active');
-                    thumbDiv.style.backgroundImage = `url('${image}')`;
-                    thumbDiv.dataset.src = image;
+                    thumbDiv.style.backgroundImage = `url('${image.src}')`;
+                    thumbDiv.dataset.src = image.src;
+                    thumbDiv.dataset.shop = image.shop; // Store shop name
                     thumbDiv.dataset.index = index;
                     thumbnailGrid.appendChild(thumbDiv);
                 });
@@ -1451,6 +1436,7 @@
         thumbnailGrid.addEventListener('click', (e) => {
             if (e.target.classList.contains('thumbnail')) {
                 const imageSrc = e.target.dataset.src;
+                const shopName = e.target.dataset.shop; // Get shop name
                 const index = parseInt(e.target.dataset.index) + 1;
                 const totalImages = e.target.parentElement.children.length;
 
@@ -1458,6 +1444,9 @@
                 mainImage.style.backgroundImage = `url('${imageSrc}')`;
                 mainImage.dataset.src = imageSrc;
                 mainImage.innerHTML = `<span class="image-counter">${index}/${totalImages}</span>`;
+
+                // Update shop name
+                modalShop.textContent = shopName;
 
                 // Update active thumbnail
                 thumbnailGrid.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
