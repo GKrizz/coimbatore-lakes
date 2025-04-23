@@ -826,7 +826,7 @@
             <ul class="nav-links">
                 <li><a href="#lakes">Our Lakes</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#events">Events</a></li>
+                <li><a href="events.html">Events</a></li>
                 <li><a href="#rentals">Rentals</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -1398,6 +1398,34 @@
                 imageLightbox.classList.remove('active');
             }
         });
+
+
+        // Event gallery toggle
+    const eventGalleryToggle = document.querySelector('.event-gallery-toggle');
+    const eventGallery = document.querySelector('.event-gallery');
+
+    eventGalleryToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        eventGallery.style.display = eventGallery.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // Lightbox for event images
+    document.querySelectorAll('.event-image').forEach(image => {
+        image.addEventListener('click', () => {
+            const imageSrc = image.dataset.src;
+            lightboxImage.src = imageSrc;
+            imageLightbox.classList.add('active');
+        });
+    });
+
+    // Keyboard navigation for accessibility (existing)
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            modal.classList.remove('active');
+            imageLightbox.classList.remove('active');
+            eventGallery.style.display = 'none'; // Close event gallery on Escape
+        }
+    });
 
         
     </script>

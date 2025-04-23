@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events at Lakes of Coimbatore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-green: #1A4D2E; /* Forest green for headers, buttons */
+            --secondary-green: #4CAF50; /* Lime green for accents, hover */
+            --accent-green: #E8F5E9; /* Light green for backgrounds */
+            --white: #FFFFFF;
+            --light-gray: #F5F5F5;
+            --dark-gray: #333333;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            color: var(--dark-gray);
+            line-height: 1.6;
+            background-color: var(--light-gray);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: transparent;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        nav.scrolled {
+            background-color: var(--primary-green);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links li a:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-green);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--white);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 60vh;
+            background: linear-gradient(rgba(26, 77, 46, 0.7), rgba(26, 77, 46, 0.7)), url("./Valankulam lake_2.png") center/cover no-repeat;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content p {
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Events Section */
+        .events-section {
+            padding: clamp(4rem, 8vw, 5rem) 2rem;
+            background-color: var(--white);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .events-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            color: var(--primary-green);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            font-weight: 300;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .event-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border: 2px solid var(--secondary-green);
+        }
+
+        .event-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Image Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            overflow: auto;
+        }
+
+        .modal-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .modal-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: var(--white);
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--secondary-green);
+            transform: rotate(90deg);
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://media.istockphoto.com/id/2098373391/photo/scenic-view-of-lake-conroe-in-texas.webp?a=1&b=1&s=612x612&w=0&k=20&c=5nSKavhUU-K7icKBYWYORLHcOf1nlDTPnQFVF7QBzQE=") center/cover no-repeat;
+            color: var(--white);
+            text-align: center;
+            padding: clamp(4rem, 8vw, 6rem) 2rem;
+        }
+
+        .cta-content h2 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            margin-bottom: 2rem;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--secondary-green);
+            color: var(--white);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .cta-button i {
+            margin-left: 0.5rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-green);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: clamp(3rem, 6vw, 4rem) 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-contact p {
+            margin-bottom: 0.5rem;
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-green);
+            border-radius: 50%;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--accent-green);
+        }
+
+        .footer-seal {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .footer-seal i {
+            font-size: 2rem;
+            color: var(--accent-green);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--accent-green);
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--primary-green);
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+
+            .hero-section {
+                height: 50vh;
+            }
+
+            .hero-content h1 {
+                font-size: clamp(1.5rem, 4vw, 2rem);
+            }
+
+            .events-section {
+                padding: 2rem 1rem;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .event-image {
+                height: 200px;
+            }
+
+            .modal-image {
+                max-width: 95%;
+                max-height: 80%;
+            }
+
+            .close-modal {
+                top: 10px;
+                right: 20px;
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fas fa-leaf"></i> Lakes of Coimbatore</a>
+            <button class="hamburger" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html#lakes">Our Lakes</a></li>
+                <li><a href="index.html#services">Services</a></a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="index.html#rentals">Rentals</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Events at Lakes of Coimbatore</h1>
+            <p>Discover unforgettable events hosted at our scenic lake venues, designed for sustainability and community engagement.</p>
+        </div>
+    </section>
+
+    <section class="events-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Event Highlights</h2>
+                <p>Explore recent and upcoming events at Coimbatore's lakes, showcasing our commitment to culture and nature.</p>
+            </div>
+            <div class="events-grid">
+                <div class="event-card" onclick="openImageModal('./Event1.jpeg')">
+                    <div class="event-image" style="background-image: url('./Event1.jpeg');"></div>
+                </div>
+                <div class="event-card" onclick="openImageModal('./Event2.jpeg')">
+                    <div class="event-image" style="background-image: url('./Event2.jpeg');"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal" onclick="closeImageModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" class="modal-image" src="" alt="Full size event image">
+        </div>
+    </div>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Host Your Event?</h2>
+            <p>Contact us to book one of our stunning lake venues for your next event.</p>
+            <a href="index.html#contact" class="cta-button">Inquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>We are dedicated to preserving Coimbatore's lakes while promoting sustainable commercial opportunities for businesses and communities.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html#lakes">Our Lakes</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="index.html#rentals">Rentals</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <div class="footer-contact">
+                    <p>Email: <a href="mailto:lakesofcoimbatore@gmail.com" style="color: inherit; text-decoration: none;">lakesofcoimbatore@gmail.com</a></p>
+                    <p>Phone: <a href="tel:+919363981304" style="color: inherit; text-decoration: none;">+91 936 398 1304</a></p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/lakesofcoimbatore?igsh=d3FvM3R5NDQwbTN4" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-seal">
+            <i class="fas fa-shield-alt"></i>
+            <p>Official Conservation Initiative</p>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Lakes of Coimbatore. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Section fade-in on scroll
+        const sections = document.querySelectorAll('.events-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => observer.observe(section));
+
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.textContent = '☰';
+            });
+        });
+
+        // Image Modal functionality
+        function openImageModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        }
+
+        function closeImageModal() {
+            document.getElementById('imageModal').style.display = "none";
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+
+        // Close modal when clicking outside the image
+        window.addEventListener('click', (event) => {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                closeImageModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeImageModal();
+            }
+        });
+    </script>
+</body>
+</html>
