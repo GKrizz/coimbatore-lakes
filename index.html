@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+        
         :root {
             --primary-green: #1A4D2E; /* Forest green for headers, buttons */
             --secondary-green: #4CAF50; /* Lime green for accents, hover */
@@ -35,7 +40,7 @@
         header {
             position: relative;
             height: 100vh;
-            background: linear-gradient(rgba(26, 77, 46, 0.7), rgba(26, 77, 46, 0.7)), url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&fm=jpg&crop=entropy&cs=srgb&w=1920") center/cover no-repeat;
+            background: linear-gradient(rgba(26, 77, 46, 0.7), rgba(26, 77, 46, 0.7)), url("./Valankulam\ lake_2.png") center/cover no-repeat;
             color: var(--white);
             display: flex;
             align-items: center;
@@ -808,15 +813,15 @@
 <body>
     <header>
         <div class="header-content">
-            <h1>Lakes of Coimbatore</h1>
-            <p>Preserving nature, promoting sustainable opportunities</p>
-            <a href="#contact" class="header-cta">Get Involved <i class="fas fa-arrow-right"></i></a>
+            <h1>Welcome to Lakes of Coimbatore</h1>
+            <p>Reviving ecosystems, enriching communities through sustainable lake initiatives</p>
+            <a href="#services" class="header-cta">Join Us Today <i class="fas fa-arrow-right"></i></a>
         </div>
     </header>
 
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo"><i class="fas fa-leaf"></i> Coimbatore Lakes</a>
+            <a href="#" class="logo"><i class="fas fa-leaf"></i> Lakes of Coimbatore</a>
             <button class="hamburger" aria-label="Toggle menu">☰</button>
             <ul class="nav-links">
                 <li><a href="#lakes">Our Lakes</a></li>
@@ -1121,13 +1126,13 @@
             <div class="footer-column">
                 <h3>Contact Info</h3>
                 <div class="footer-contact">
-                    <p>Email: lakesofcoimbatore@gmail.com</p>
-                    <p>Phone: +91 936 398 1304</p>
-                    <p>Address: 123 Lakeview Road, Coimbatore, TN</p>
+                    <p>Email: <a href="mailto:lakesofcoimbatore@gmail.com" style="color: inherit; text-decoration: none;">lakesofcoimbatore@gmail.com</a></p>
+                    <p>Phone: <a href="tel:+919363981304" style="color: inherit; text-decoration: none;">+91 936 398 1304</a></p>
+                    
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/lakesofcoimbatore?igsh=d3FvM3R5NDQwbTN4" class="social-link"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
@@ -1138,7 +1143,7 @@
             <p>Official Conservation Initiative</p>
         </div>
         <div class="copyright">
-            <p>© 2025 Coimbatore Lakes. All rights reserved.</p>
+            <p>© 2025 Lakes of Coimbatore. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1393,6 +1398,8 @@
                 imageLightbox.classList.remove('active');
             }
         });
+
+        
     </script>
 </body>
 </html>
