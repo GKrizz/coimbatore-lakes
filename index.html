@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     <!-- SEO Meta Tags -->
     <title>Lakes of Coimbatore - Conservation & Sustainable Commercial Initiatives</title>
-    <meta name="description" content="Explore the Lakes of Coimbatore, revitalized for conservation and sustainable commercial opportunities like kiosks, event spaces, and rentals.">
-    <meta name="keywords" content="Lakes of Coimbatore, lake conservation, sustainable business, Coimbatore lakes, kiosk rentals, event venues, eco-friendly initiatives">
+    <meta name="description"
+        content="Explore the Lakes of Coimbatore, revitalized for conservation and sustainable commercial opportunities like kiosks, event spaces, and rentals.">
+    <meta name="keywords"
+        content="Lakes of Coimbatore, lake conservation, sustainable business, Coimbatore lakes, kiosk rentals, event venues, eco-friendly initiatives">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Lakes of Coimbatore Team">
+
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://coimbatore-lakes.vercel.app/">
 
     <!-- Open Graph Tags for Social Media -->
     <meta property="og:title" content="Lakes of Coimbatore - Conservation & Sustainable Commercial Initiatives">
-    <meta property="og:description" content="Discover Coimbatore's revitalized lakes, offering eco-friendly kiosk rentals, event spaces, and conservation programs.">
+    <meta property="og:description"
+        content="Discover Coimbatore's revitalized lakes, offering eco-friendly kiosk rentals, event spaces, and conservation programs.">
     <meta property="og:image" content="https://coimbatore-lakes.vercel.app/Valankulam_lake_2.png">
     <meta property="og:url" content="https://coimbatore-lakes.vercel.app/">
     <meta property="og:type" content="website">
@@ -24,7 +31,8 @@
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Lakes of Coimbatore - Conservation & Sustainable Commercial Initiatives">
-    <meta name="twitter:description" content="Join us in preserving Coimbatore's lakes while exploring sustainable business opportunities like kiosks and event venues.">
+    <meta name="twitter:description"
+        content="Join us in preserving Coimbatore's lakes while exploring sustainable business opportunities like kiosks and event venues.">
     <meta name="twitter:image" content="https://coimbatore-lakes.vercel.app/Valankulam_lake_2.png">
 
     <meta name="google-site-verification" content="google123456789abc.html" />
@@ -35,6 +43,10 @@
     <!-- External Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- SweetAlert2 CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
@@ -127,10 +139,23 @@
     </script>
 
     <style>
+        .close-toll-free {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-toll-free:hover {
+            color: var(--accent-green);
+        }
+
         html {
             scroll-behavior: smooth;
         }
-        
+
         :root {
             --primary-green: #1A4D2E;
             --secondary-green: #4CAF50;
@@ -153,6 +178,35 @@
             color: var(--dark-gray);
             line-height: 1.6;
             background-color: var(--light-gray);
+        }
+
+        .sweet-alert-popup {
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .sweet-alert-title {
+            color: var(--primary-green);
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
+            font-weight: 600;
+        }
+
+        .sweet-alert-content {
+            color: var(--dark-gray);
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        .sweet-alert-button {
+            border-radius: 50px !important;
+            font-size: clamp(0.9rem, 2.5vw, 1rem) !important;
+            padding: 0.75rem 2rem !important;
+            transition: var(--transition) !important;
+        }
+
+        .sweet-alert-button:hover {
+            background-color: var(--primary-green) !important;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
         }
 
         /* Hero Header */
@@ -209,8 +263,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Navigation */
@@ -329,14 +390,19 @@
         }
 
         /* Grid Layouts */
-        .lakes-grid, .services-grid, .kiosk-lakes-grid, .gallery-grid {
+        .lakes-grid,
+        .services-grid,
+        .kiosk-lakes-grid,
+        .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 2rem;
         }
 
         /* Cards */
-        .lake-card, .service-card, .kiosk-lake-card {
+        .lake-card,
+        .service-card,
+        .kiosk-lake-card {
             background: var(--white);
             border-radius: 12px;
             overflow: hidden;
@@ -346,13 +412,16 @@
             border: 2px solid transparent;
         }
 
-        .lake-card:hover, .service-card:hover, .kiosk-lake-card:hover {
+        .lake-card:hover,
+        .service-card:hover,
+        .kiosk-lake-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             border: 2px solid var(--secondary-green);
         }
 
-        .lake-image, .kiosk-lake-image {
+        .lake-image,
+        .kiosk-lake-image {
             height: 260px;
             background-size: cover;
             background-position: center;
@@ -378,23 +447,27 @@
             font-weight: 600;
         }
 
-        .lake-content, .service-card {
+        .lake-content,
+        .service-card {
             padding: 1.5rem;
         }
 
-        .lake-content h3, .service-card h3 {
+        .lake-content h3,
+        .service-card h3 {
             color: var(--primary-green);
             font-size: clamp(1.3rem, 3vw, 1.5rem);
             margin-bottom: 0.5rem;
         }
 
-        .lake-content p, .service-card p {
+        .lake-content p,
+        .service-card p {
             color: #666;
             font-size: clamp(0.85rem, 2.5vw, 0.95rem);
             margin-bottom: 1rem;
         }
 
-        .lake-content a, .service-card a {
+        .lake-content a,
+        .service-card a {
             display: inline-flex;
             align-items: center;
             background-color: var(--secondary-green);
@@ -406,11 +479,13 @@
             transition: var(--transition);
         }
 
-        .lake-content a i, .service-card a i {
+        .lake-content a i,
+        .service-card a i {
             margin-left: 0.5rem;
         }
 
-        .lake-content a:hover, .service-card a:hover {
+        .lake-content a:hover,
+        .service-card a:hover {
             background-color: var(--primary-green);
             transform: translateY(-2px);
             box-shadow: var(--shadow);
@@ -541,7 +616,8 @@
             transition: var(--transition);
         }
 
-        .thumbnail:hover, .thumbnail.active {
+        .thumbnail:hover,
+        .thumbnail.active {
             opacity: 1;
             border: 2px solid var(--secondary-green);
             transform: scale(1.05);
@@ -844,6 +920,78 @@
             font-size: clamp(0.8rem, 2.5vw, 0.9rem);
         }
 
+        .toll-free-display {
+
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(26, 77, 46, 0.8);
+            /* Semi-transparent --primary-green */
+
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 1000;
+            transition: var(--transition);
+
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .toll-free-display:hover {
+            background-color: var(--primary-green);
+            transform: translateY(-2px);
+        }
+
+        .toll-free-text {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            font-weight: 500;
+        }
+
+        .toll-free-link {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .toll-free-link:hover {
+            text-decoration: underline;
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .copy-btn:hover {
+            color: var(--accent-green);
+        }
+
+        /* Ensure visibility on smaller screens */
+        @media (max-width: 768px) {
+            .toll-free-display {
+                bottom: 15px;
+                right: 15px;
+                padding: 0.5rem 1rem;
+            }
+
+            .toll-free-text {
+                font-size: clamp(0.8rem, 2vw, 0.9rem);
+            }
+
+            .copy-btn {
+                font-size: 0.9rem;
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hamburger {
@@ -882,7 +1030,10 @@
                 padding: 2rem 1rem;
             }
 
-            .lakes-grid, .services-grid, .kiosk-lakes-grid, .gallery-grid {
+            .lakes-grid,
+            .services-grid,
+            .kiosk-lakes-grid,
+            .gallery-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -929,6 +1080,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="header-content">
@@ -961,47 +1113,58 @@
             </div>
             <div class="lakes-grid">
                 <article class="lake-card">
-                    <div class="lake-image" style="background-image: url('Kumarasamy_lake_1.jpg');" role="img" aria-label="Kumarasamy Lake"></div>
+                    <div class="lake-image" style="background-image: url('Kumarasamy_lake_1.jpg');" role="img"
+                        aria-label="Kumarasamy Lake"></div>
                     <div class="lake-content">
                         <h3>Kumarasamy Lake</h3>
-                        <p>One of the largest lakes in Coimbatore, supporting diverse flora and fauna with recent restoration efforts.</p>
+                        <p>One of the largest lakes in Coimbatore, supporting diverse flora and fauna with recent
+                            restoration efforts.</p>
                         <a href="#contact">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
                 <article class="lake-card">
-                    <div class="lake-image" style="background-image: url('Krishnampathy lake_Pic.jpg');" role="img" aria-label="Krishnampathy Lake"></div>
+                    <div class="lake-image" style="background-image: url('Krishnampathy lake_Pic.jpg');" role="img"
+                        aria-label="Krishnampathy Lake"></div>
                     <div class="lake-content">
                         <h3>Krishnampathy Lake</h3>
-                        <p>A bird sanctuary and ecological hotspot, home to numerous migratory birds and local wildlife.</p>
+                        <p>A bird sanctuary and ecological hotspot, home to numerous migratory birds and local wildlife.
+                        </p>
                         <a href="#contact">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
                 <article class="lake-card">
-                    <div class="lake-image" style="background-image: url('Periyakulam Lake_pic.jpg');" role="img" aria-label="Periyakulam Lake"></div>
+                    <div class="lake-image" style="background-image: url('Periyakulam Lake_pic.jpg');" role="img"
+                        aria-label="Periyakulam Lake"></div>
                     <div class="lake-content">
                         <h3>Periyakulam Lake</h3>
-                        <p>A historically significant lake with cultural connections to the nearby Perur Temple, offering serene landscapes.</p>
+                        <p>A historically significant lake with cultural connections to the nearby Perur Temple,
+                            offering serene landscapes.</p>
                         <a href="#contact">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
                 <article class="lake-card">
-                    <div class="lake-image" style="background-image: url('Kurichi_2.jpg');" role="img" aria-label="Kurichi Lake"></div>
+                    <div class="lake-image" style="background-image: url('Kurichi_2.jpg');" role="img"
+                        aria-label="Kurichi Lake"></div>
                     <div class="lake-content">
                         <h3>Kurichi Lake</h3>
-                        <p>Recently renovated urban lake with walking paths, offering recreational opportunities for locals.</p>
+                        <p>Recently renovated urban lake with walking paths, offering recreational opportunities for
+                            locals.</p>
                         <a href="#contact">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
                 <article class="lake-card">
-                    <div class="lake-image" style="background-image: url('Valankulam lake_1.png');" role="img" aria-label="Valankulam Lake"></div>
+                    <div class="lake-image" style="background-image: url('Valankulam lake_1.png');" role="img"
+                        aria-label="Valankulam Lake"></div>
                     <div class="lake-content">
                         <h3>Valankulam Lake</h3>
-                        <p>Part of the Smart Cities Mission transformation, featuring modern amenities and beautiful landscapes.</p>
+                        <p>Part of the Smart Cities Mission transformation, featuring modern amenities and beautiful
+                            landscapes.</p>
                         <a href="#contact">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
                 <article class="lake-card">
-                    <div class="lake-image" style="background-image: url('Selvachinthamani lake.jpg');" role="img" aria-label="Selvachinthamani Lake"></div>
+                    <div class="lake-image" style="background-image: url('Selvachinthamani lake.jpg');" role="img"
+                        aria-label="Selvachinthamani Lake"></div>
                     <div class="lake-content">
                         <h3>Selvachinthamani Lake</h3>
                         <p>A revitalized urban lake with recreational facilities and educational ecological zones.</p>
@@ -1052,7 +1215,8 @@
                 <article class="service-card">
                     <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
                     <h3>Educational Tours</h3>
-                    <p>Schedule guided educational tours for schools and organizations to learn about lake ecosystems.</p>
+                    <p>Schedule guided educational tours for schools and organizations to learn about lake ecosystems.
+                    </p>
                     <a href="#contact">Book a Tour <i class="fas fa-arrow-right"></i></a>
                 </article>
             </div>
@@ -1067,37 +1231,43 @@
             </div>
             <div class="kiosk-lakes-grid">
                 <article class="kiosk-lake-card" data-lake="Kumarasamy">
-                    <div class="kiosk-lake-image" style="background-image: url('Kumarasamy_lake_1.jpg');" role="img" aria-label="Kumarasamy Lake Kiosk"></div>
+                    <div class="kiosk-lake-image" style="background-image: url('Kumarasamy_lake_1.jpg');" role="img"
+                        aria-label="Kumarasamy Lake Kiosk"></div>
                     <div class="kiosk-lake-overlay">
                         <h3>Kumarasamy Lake</h3>
                     </div>
                 </article>
                 <article class="kiosk-lake-card" data-lake="Krishnampathy">
-                    <div class="kiosk-lake-image" style="background-image: url('Krishnampathy lake_Pic.jpg');" role="img" aria-label="Krishnampathy Lake Kiosk"></div>
+                    <div class="kiosk-lake-image" style="background-image: url('Krishnampathy lake_Pic.jpg');"
+                        role="img" aria-label="Krishnampathy Lake Kiosk"></div>
                     <div class="kiosk-lake-overlay">
                         <h3>Krishnampathy Lake</h3>
                     </div>
                 </article>
                 <article class="kiosk-lake-card" data-lake="Periyakulam">
-                    <div class="kiosk-lake-image" style="background-image: url('Periyakulam Lake_pic.jpg');" role="img" aria-label="Periyakulam Lake Kiosk"></div>
+                    <div class="kiosk-lake-image" style="background-image: url('Periyakulam Lake_pic.jpg');" role="img"
+                        aria-label="Periyakulam Lake Kiosk"></div>
                     <div class="kiosk-lake-overlay">
                         <h3>Periyakulam Lake</h3>
                     </div>
                 </article>
                 <article class="kiosk-lake-card" data-lake="Kurichi">
-                    <div class="kiosk-lake-image" style="background-image: url('Kurichi_2.jpg');" role="img" aria-label="Kurichi Lake Kiosk"></div>
+                    <div class="kiosk-lake-image" style="background-image: url('Kurichi_2.jpg');" role="img"
+                        aria-label="Kurichi Lake Kiosk"></div>
                     <div class="kiosk-lake-overlay">
                         <h3>Kurichi Lake</h3>
                     </div>
                 </article>
                 <article class="kiosk-lake-card" data-lake="Valankulam">
-                    <div class="kiosk-lake-image" style="background-image: url('Valankulam lake_1.png');" role="img" aria-label="Valankulam Lake Kiosk"></div>
+                    <div class="kiosk-lake-image" style="background-image: url('Valankulam lake_1.png');" role="img"
+                        aria-label="Valankulam Lake Kiosk"></div>
                     <div class="kiosk-lake-overlay">
                         <h3>Valankulam Lake</h3>
                     </div>
                 </article>
                 <article class="kiosk-lake-card" data-lake="Selvachinthamani">
-                    <div class="kiosk-lake-image" style="background-image: url('Selvachinthamani lake.jpg');" role="img" aria-label="Selvachinthamani Lake Kiosk"></div>
+                    <div class="kiosk-lake-image" style="background-image: url('Selvachinthamani lake.jpg');" role="img"
+                        aria-label="Selvachinthamani Lake Kiosk"></div>
                     <div class="kiosk-lake-overlay">
                         <h3>Selvachinthamani Lake</h3>
                     </div>
@@ -1133,7 +1303,8 @@
     <section id="events" class="cta-section">
         <div class="cta-content">
             <h2>Host Your Next Event at Our Lakes</h2>
-            <p>From corporate gatherings to cultural performances, our lake venues offer unique settings for memorable events. All facilities designed with sustainability in mind.</p>
+            <p>From corporate gatherings to cultural performances, our lake venues offer unique settings for memorable
+                events. All facilities designed with sustainability in mind.</p>
             <div class="cta-buttons">
                 <a href="/events.html" class="cta-button primary-btn">Inquire About Events</a>
                 <a href="#gallery" class="cta-button secondary-btn">View Event Spaces</a>
@@ -1149,25 +1320,30 @@
             </div>
             <div class="lakes-grid">
                 <article class="lake-card">
-                    <div class="lake-image" style="background-image: url('Kumarasamy_lake_2.jpg');" role="img" aria-label="Lakeside Kiosks"></div>
+                    <div class="lake-image" style="background-image: url('Kumarasamy_lake_2.jpg');" role="img"
+                        aria-label="Lakeside Kiosks"></div>
                     <div class="lake-content">
                         <h3>Lakeside Kiosks</h3>
-                        <p>Compact commercial spaces perfect for food vendors, craft sellers, and small retail operations.</p>
+                        <p>Compact commercial spaces perfect for food vendors, craft sellers, and small retail
+                            operations.</p>
                         <p><strong>Sizes:</strong> 100-200 sq.ft</p>
                         <a href="#contact">Check Availability <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
                 <article class="lake-card">
-                    <div class="lake-image" style="background-image: url('Valankulam lake_2.png');" role="img" aria-label="Waterfront Cafés"></div>
+                    <div class="lake-image" style="background-image: url('Valankulam lake_2.png');" role="img"
+                        aria-label="Waterfront Cafés"></div>
                     <div class="lake-content">
                         <h3>Waterfront Cafés</h3>
-                        <p>Dedicated spaces for restaurants and cafés with panoramic lake views and outdoor seating areas.</p>
+                        <p>Dedicated spaces for restaurants and cafés with panoramic lake views and outdoor seating
+                            areas.</p>
                         <p><strong>Sizes:</strong> 500-1000 sq.ft</p>
                         <a href="#contact">Inquire Now <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
                 <article class="lake-card">
-                    <div class="lake-image" style="background-image: url('Periyakulam_pic_2.jpeg');" role="img" aria-label="Activity Centers"></div>
+                    <div class="lake-image" style="background-image: url('Periyakulam_pic_2.jpeg');" role="img"
+                        aria-label="Activity Centers"></div>
                     <div class="lake-content">
                         <h3>Activity Centers</h3>
                         <p>Spaces for recreational businesses like boat rentals, cycling, or fitness activities.</p>
@@ -1176,7 +1352,8 @@
                     </div>
                 </article>
                 <article class="lake-card">
-                    <div class="lake-image" style="background-image: url('Selvachinthamani lake.jpg');" role="img" aria-label="Event Pavilions"></div>
+                    <div class="lake-image" style="background-image: url('Selvachinthamani lake.jpg');" role="img"
+                        aria-label="Event Pavilions"></div>
                     <div class="lake-content">
                         <h3>Event Pavilions</h3>
                         <p>Open and semi-enclosed spaces available for short-term rental for events and gatherings.</p>
@@ -1195,13 +1372,20 @@
                 <p>Explore the beauty and transformation of Coimbatore's lakes</p>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item" style="background-image: url('Kumarasamy_lake_1.jpg');" role="img" aria-label="Kumarasamy Lake View"></div>
-                <div class="gallery-item" style="background-image: url('Kumarasamy_lake_2.jpg');" role="img" aria-label="Kumarasamy Lake Scenery"></div>
-                <div class="gallery-item" style="background-image: url('Valankulam lake_1.png');" role="img" aria-label="Valankulam Lake View"></div>
-                <div class="gallery-item" style="background-image: url('Valankulam lake_2.png');" role="img" aria-label="Valankulam Lake Scenery"></div>
-                <div class="gallery-item" style="background-image: url('Periyakulam Lake_pic.jpg');" role="img" aria-label="Periyakulam Lake View"></div>
-                <div class="gallery-item" style="background-image: url('Krishnampathy lake_Pic.jpg');" role="img" aria-label="Krishnampathy Lake View"></div>
-                <div class="gallery-item" style="background-image: url('Selvachinthamani lake.jpg');" role="img" aria-label="Selvachinthamani Lake View"></div>
+                <div class="gallery-item" style="background-image: url('Kumarasamy_lake_1.jpg');" role="img"
+                    aria-label="Kumarasamy Lake View"></div>
+                <div class="gallery-item" style="background-image: url('Kumarasamy_lake_2.jpg');" role="img"
+                    aria-label="Kumarasamy Lake Scenery"></div>
+                <div class="gallery-item" style="background-image: url('Valankulam lake_1.png');" role="img"
+                    aria-label="Valankulam Lake View"></div>
+                <div class="gallery-item" style="background-image: url('Valankulam lake_2.png');" role="img"
+                    aria-label="Valankulam Lake Scenery"></div>
+                <div class="gallery-item" style="background-image: url('Periyakulam Lake_pic.jpg');" role="img"
+                    aria-label="Periyakulam Lake View"></div>
+                <div class="gallery-item" style="background-image: url('Krishnampathy lake_Pic.jpg');" role="img"
+                    aria-label="Krishnampathy Lake View"></div>
+                <div class="gallery-item" style="background-image: url('Selvachinthamani lake.jpg');" role="img"
+                    aria-label="Selvachinthamani Lake View"></div>
             </div>
         </div>
     </section>
@@ -1215,22 +1399,33 @@
             <div class="form-container">
                 <div class="form-content">
                     <h3>Get in Touch</h3>
-                    <p>Whether you're interested in operating a kiosk, hosting an event, or renting a commercial space, our team is here to help you find the perfect solution for your needs.</p>
-                    <p>Fill out the form below, and we'll get back to you within 24-48 hours with all the information you need.</p>
+                    <p>Whether you're interested in operating a kiosk, hosting an event, or renting a commercial space,
+                        our team is here to help you find the perfect solution for your needs.</p>
+                    <p>Fill out the form below, and we'll get back to you within 24-48 hours with all the information
+                        you need.</p>
                     <p>For urgent inquiries, please call us at <strong>+91 936 398 1304</strong>.</p>
+                    <button class="cta-button primary-btn" id="toll-free-btn">View Toll-Free Number</button>
                 </div>
                 <div class="contact-form">
-                    <iframe src="https://forms.gle/P6Exe286TANoDC9y8" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" title="Contact Form">Loading…</iframe>
+                    <iframe src="https://forms.gle/P6Exe286TANoDC9y8" width="100%" height="800" frameborder="0"
+                        marginheight="0" marginwidth="0" title="Contact Form">Loading…</iframe>
                 </div>
             </div>
         </div>
     </section>
 
+    <div class="toll-free-display">
+        <span class="toll-free-text">Toll-Free: <a href="tel:18001230939" class="toll-free-link">18001230939</a></span>
+        <button class="copy-btn" title="Copy number to clipboard"><i class="fas fa-copy"></i></button>
+        <button class="close-toll-free" title="Hide toll-free number">×</button>
+    </div>
+
     <footer>
         <div class="footer-content">
             <div class="footer-column">
                 <h3>About Us</h3>
-                <p>We are dedicated to preserving Coimbatore's lakes while promoting sustainable commercial opportunities for businesses and communities.</p>
+                <p>We are dedicated to preserving Coimbatore's lakes while promoting sustainable commercial
+                    opportunities for businesses and communities.</p>
             </div>
             <div class="footer-column">
                 <h3>Quick Links</h3>
@@ -1245,12 +1440,15 @@
             <div class="footer-column">
                 <h3>Contact Info</h3>
                 <div class="footer-contact">
-                    <p>Email: <a href="mailto:lakesofcoimbatore@gmail.com" style="color: inherit; text-decoration: none;">lakesofcoimbatore@gmail.com</a></p>
-                    <p>Phone: <a href="tel:+919363981304" style="color: inherit; text-decoration: none;">+91 936 398 1304</a></p>
+                    <p>Email: <a href="mailto:lakesofcoimbatore@gmail.com"
+                            style="color: inherit; text-decoration: none;">lakesofcoimbatore@gmail.com</a></p>
+                    <p>Phone: <a href="tel:+919363981304" style="color: inherit; text-decoration: none;">+91 936 398
+                            1304</a></p>
                     <div class="social-links">
                         <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/lakesofcoimbatore?igsh=d3FvM3R5NDQwbTN4" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/lakesofcoimbatore?igsh=d3FvM3R5NDQwbTN4" class="social-link"
+                            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
@@ -1517,6 +1715,114 @@
                 imageLightbox.classList.remove('active');
             }
         });
+
+        // SweetAlert2 Popup for Toll-Free Number
+        document.addEventListener('DOMContentLoaded', () => {
+            // Optional: Show popup automatically on page load
+            
+   if (!localStorage.getItem('tollFreePopupShown')) {
+        setTimeout(() => {
+            Swal.fire({
+                title: 'Toll-Free Number',
+                text: 'For urgent inquiries, call us at 18001230939',
+                icon: 'info',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#4CAF50',
+                background: '#F5F5F5',
+                customClass: {
+                    popup: 'sweet-alert-popup',
+                    title: 'sweet-alert-title',
+                    content: 'sweet-alert-content',
+                    confirmButton: 'sweet-alert-button'
+                }
+            }).then(() => {
+                localStorage.setItem('tollFreePopupShown', 'true');
+            });
+        }, 3000); // 3-second delay
+    }
+
+            // Optional: Trigger popup on button click
+            const tollFreeBtn = document.getElementById('toll-free-btn');
+            if (tollFreeBtn) {
+                tollFreeBtn.addEventListener('click', () => {
+                    Swal.fire({
+                        title: 'Toll-Free Number',
+                        text: 'For urgent inquiries, call us at 18001230939',
+                        icon: 'info',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#4CAF50',
+                        background: '#F5F5F5',
+                        customClass: {
+                            popup: 'sweet-alert-popup',
+                            title: 'sweet-alert-title',
+                            content: 'sweet-alert-content',
+                            confirmButton: 'sweet-alert-button'
+                        }
+                    });
+                });
+            }
+        });
+
+        // Copy to Clipboard Functionality
+        const copyBtn = document.querySelector('.copy-btn');
+        const tollFreeLink = document.querySelector('.toll-free-link');
+
+        if (copyBtn) {
+            copyBtn.addEventListener('click', () => {
+                const number = tollFreeLink.textContent;
+                navigator.clipboard.writeText(number).then(() => {
+                    // Optional: Show a confirmation using SweetAlert2
+                    Swal.fire({
+                        title: 'Copied!',
+                        text: 'Toll-Free number copied to clipboard.',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#4CAF50',
+                        background: '#F5F5F5',
+                        customClass: {
+                            popup: 'sweet-alert-popup',
+                            title: 'sweet-alert-title',
+                            content: 'sweet-alert-content',
+                            confirmButton: 'sweet-alert-button'
+                        },
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+                }).catch(() => {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Failed to copy number.',
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#4CAF50',
+                        background: '#F5F5F5'
+                    });
+                });
+            });
+        }
+
+        const closeTollFreeBtn = document.querySelector('.close-toll-free');
+        if (closeTollFreeBtn) {
+            closeTollFreeBtn.addEventListener('click', () => {
+                document.querySelector('.toll-free-display').style.display = 'none';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.querySelector('.toll-free-display').style.opacity = '1';
+            }, 3000);
+        });
+
+        /*copyBtn.addEventListener('click', () => {
+            const number = tollFreeLink.textContent;
+            navigator.clipboard.writeText(number).then(() => {
+                alert('Toll-Free number copied to clipboard!');
+            }).catch(() => {
+                alert('Failed to copy number.');
+            });
+        }); */
     </script>
 </body>
+
 </html>
