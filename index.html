@@ -392,8 +392,7 @@
         /* Grid Layouts */
         .lakes-grid,
         .services-grid,
-        .kiosk-lakes-grid,
-        .gallery-grid {
+        .kiosk-lakes-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 2rem;
@@ -555,14 +554,15 @@
             cursor: pointer;
             color: var(--dark-gray);
             transition: var(--transition);
-             z-index: 10; /* ensure it's on top */
+            z-index: 10;
+            /* ensure it's on top */
         }
 
         .modal-close:hover {
             color: var(--secondary-green);
         }
 
-    
+
 
         .main-image-container {
             position: relative;
@@ -581,18 +581,19 @@
             transform: scale(1.02);
         }
 
-  .thumbnail {
-    min-width: 90px;
-    height: 70px;
-    background-size: cover;
-    background-position: center;
-    flex-shrink: 0; /* Prevent squishing */
-    border: 2px solid transparent;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: border 0.3s ease;
-    scroll-snap-align: start;
-}
+        .thumbnail {
+            min-width: 90px;
+            height: 70px;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+            /* Prevent squishing */
+            border: 2px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: border 0.3s ease;
+            scroll-snap-align: start;
+        }
 
         .thumbnail:hover,
         .thumbnail.active {
@@ -648,21 +649,21 @@
             box-shadow: var(--shadow);
         }
 
- /* Lightbox */
-.image-lightbox {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-    padding: 1rem;
-    transition: opacity 0.3s ease;
-}
+        /* Lightbox */
+        .image-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 1rem;
+            transition: opacity 0.3s ease;
+        }
 
         .image-lightbox.active {
             display: flex;
@@ -670,35 +671,39 @@
         }
 
         .lightbox-content {
-    position: relative; /* Positioning context for buttons and close icon */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 90%;
-    max-height: 90%;
-    width: auto; /* Allow image to dictate width */
-    height: auto;
-}
+            position: relative;
+            /* Positioning context for buttons and close icon */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 90%;
+            max-height: 90%;
+            width: auto;
+            /* Allow image to dictate width */
+            height: auto;
+        }
 
-.lightbox-image {
-    max-width: 100%;
-    max-height: 80vh;
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    z-index: 1; /* Below buttons and counter */
-}
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            z-index: 1;
+            /* Below buttons and counter */
+        }
 
         .lightbox-close {
-    position: absolute;
-    top: -30px;
-    right: -30px;
-    color: var(--white);
-    font-size: 30px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    z-index: 3; /* Above all elements */
-}
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            color: var(--white);
+            font-size: 30px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            z-index: 3;
+            /* Above all elements */
+        }
 
         .lightbox-close:hover {
             color: var(--secondary-green);
@@ -806,27 +811,8 @@
             height: clamp(500px, 100vw, 800px);
         }
 
-        /* Gallery Section */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
 
-        .gallery-item {
-            height: 220px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
 
-        .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
 
         /* Footer */
         footer {
@@ -1016,8 +1002,7 @@
 
             .lakes-grid,
             .services-grid,
-            .kiosk-lakes-grid,
-            .gallery-grid {
+            .kiosk-lakes-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1025,9 +1010,9 @@
                 height: 250px;
             }
 
-          
 
-           
+
+
 
             .modal-content {
                 flex-direction: column;
@@ -1035,7 +1020,7 @@
                 padding: 1.5rem;
             }
 
-     
+
 
             .modal-shop {
                 font-size: clamp(1.2rem, 3vw, 1.5rem);
@@ -1049,185 +1034,205 @@
                 height: 500px;
             }
 
-        
+
         }
 
-      /* Modal Image Gallery */
-.modal-image-gallery {
-    position: relative; /* Ensure buttons are positioned relative to this */
-    display: flex;
-    flex-direction: column; /* Stack main image and thumbnails vertically */
-    align-items: center;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    overflow: visible; /* Prevent clipping of absolute-positioned buttons */
-}
+        /* Modal Image Gallery */
+        .modal-image-gallery {
+            position: relative;
+            /* Ensure buttons are positioned relative to this */
+            display: flex;
+            flex-direction: column;
+            /* Stack main image and thumbnails vertically */
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            overflow: visible;
+            /* Prevent clipping of absolute-positioned buttons */
+        }
 
-.main-image-container {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 aspect ratio */
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    z-index: 1; /* Ensure image is below buttons */
-}
+        .main-image-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            /* 16:9 aspect ratio */
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            z-index: 1;
+            /* Ensure image is below buttons */
+        }
 
-.main-image-container:hover {
-    transform: scale(1.02);
-}
+        .main-image-container:hover {
+            transform: scale(1.02);
+        }
 
-.image-counter {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    color: var(--white);
-    padding: 5px 10px;
-    border-radius: 12px;
-    font-size: 14px;
-    z-index: 3; /* Above buttons and image */
-}
+        .image-counter {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 14px;
+            z-index: 3;
+            /* Above buttons and image */
+        }
 
-.thumbnail-grid {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto; /* Horizontal scroll */
-    padding: 10px;
-    margin-top: 10px;
-    width: 100%;
-    max-width: 100%;
-    scroll-behavior: smooth;
-      -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;     /* Firefox */
-    scroll-snap-type: x mandatory;
-}
+        .thumbnail-grid {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            /* Horizontal scroll */
+            padding: 10px;
+            margin-top: 10px;
+            width: 100%;
+            max-width: 100%;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+            scroll-snap-type: x mandatory;
+        }
 
-.thumbnail-grid::-webkit-scrollbar {
-    display: none;             /* Chrome, Safari */
-}
+        .thumbnail-grid::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari */
+        }
 
 
 
-.thumbnail:hover,
-.thumbnail.active {
-    opacity: 1;
-    border: 2px solid var(--secondary-green);
-    transform: scale(1.05);
-}
+        .thumbnail:hover,
+        .thumbnail.active {
+            opacity: 1;
+            border: 2px solid var(--secondary-green);
+            transform: scale(1.05);
+        }
 
-/* Slider Buttons */
-.slider-btn {
-    background: rgba(0, 0, 0, 0.5);
-    color: var(--white);
-    border: none;
-    padding: 10px;
-    font-size: 24px;
-    cursor: pointer;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease, opacity 0.3s ease;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2; /* Above main image but below counter */
-    opacity: 0.7; /* Slightly transparent by default */
-    visibility: visible; /* Explicitly ensure visibility */
-}
+        /* Slider Buttons */
+        .slider-btn {
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--white);
+            border: none;
+            padding: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease, opacity 0.3s ease;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            /* Above main image but below counter */
+            opacity: 0.7;
+            /* Slightly transparent by default */
+            visibility: visible;
+            /* Explicitly ensure visibility */
+        }
 
-.slider-btn:hover {
-    background: rgba(0, 0, 0, 0.8);
-    opacity: 1;
-}
+        .slider-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+            opacity: 1;
+        }
 
-.slider-btn:focus {
-    outline: 2px solid var(--secondary-green);
-    outline-offset: 2px;
-}
+        .slider-btn:focus {
+            outline: 2px solid var(--secondary-green);
+            outline-offset: 2px;
+        }
 
-.slider-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-.prev-lightbox-btn {
-    left: -50px; /* Position outside image */
-}
+        .slider-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
 
-.next-lightbox-btn {
-    right: -50px; /* Position outside image */
-}
+        .prev-lightbox-btn {
+            left: -50px;
+            /* Position outside image */
+        }
 
-.prev-image-btn {
-    left: 10px;
-}
+        .next-lightbox-btn {
+            right: -50px;
+            /* Position outside image */
+        }
 
-.next-image-btn {
-    right: 10px;
-}
+        .prev-image-btn {
+            left: 10px;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .modal-image-gallery {
-        max-width: 100%;
-    }
+        .next-image-btn {
+            right: 10px;
+        }
 
-    .main-image-container {
-        padding-top: 75%; /* Adjust aspect ratio for mobile */
-    }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .modal-image-gallery {
+                max-width: 100%;
+            }
 
-    .slider-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 18px;
-    }
+            .main-image-container {
+                padding-top: 75%;
+                /* Adjust aspect ratio for mobile */
+            }
 
- 
-}
+            .slider-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 18px;
+            }
+
+
+        }
+
         /* Responsive Design for Lightbox */
-@media (max-width: 767px) {
-    .lightbox-content {
-        max-width: 95%;
-        max-height: calc(100vh - 20px);
-    }
+        @media (max-width: 767px) {
+            .lightbox-content {
+                max-width: 95%;
+                max-height: calc(100vh - 20px);
+            }
 
-    .lightbox-image {
-        max-height: 70vh;
-    }
+            .lightbox-image {
+                max-height: 70vh;
+            }
 
-    .lightbox-close {
-        top: -20px;
-        right: -20px;
-        font-size: 24px;
-    }
+            .lightbox-close {
+                top: -20px;
+                right: -20px;
+                font-size: 24px;
+            }
 
-    .slider-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 18px;
-    }
+            .slider-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 18px;
+            }
 
-    .prev-lightbox-btn {
-        left: -10px; /* Closer on mobile */
-    }
+            .prev-lightbox-btn {
+                left: -10px;
+                /* Closer on mobile */
+            }
 
-    .next-lightbox-btn {
-        right: -10px; /* Closer on mobile */
-    }
+            .next-lightbox-btn {
+                right: -10px;
+                /* Closer on mobile */
+            }
 
-    .image-counter {
-        font-size: 12px;
-        padding: 4px 8px;
-    }
-}
+            .image-counter {
+                font-size: 12px;
+                padding: 4px 8px;
+            }
+        }
     </style>
 </head>
 
@@ -1249,7 +1254,6 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="/events.html">Events</a></li>
                 <li><a href="#rentals">Rentals</a></li>
-                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -1415,6 +1419,13 @@
                         <h3>Valankulam Lake</h3>
                     </div>
                 </article>
+                <article class="kiosk-lake-card" data-lake="Valankulam UFO">
+                    <div class="kiosk-lake-image" style="background-image: url('Valankulam UFO lake_1.jpg');" role="img"
+                        aria-label="Valankulam UFO Lake Kiosk"></div>
+                    <div class="kiosk-lake-overlay">
+                        <h3>Valankulam UFO</h3>
+                    </div>
+                </article>
                 <article class="kiosk-lake-card" data-lake="Selvachinthamani">
                     <div class="kiosk-lake-image" style="background-image: url('Selvachinthamani lake.jpg');" role="img"
                         aria-label="Selvachinthamani Lake Kiosk"></div>
@@ -1422,40 +1433,41 @@
                         <h3>Selvachinthamani Lake</h3>
                     </div>
                 </article>
+
             </div>
         </div>
     </section>
 
-<div id="kiosk-modal" class="modal">
-    <div class="modal-content">
-        <span class="modal-close" aria-label="Close modal">×</span>
-        <div class="modal-image-gallery">
-            <button class="slider-btn prev-image-btn" aria-label="Previous Image">❮</button>
-            <div class="main-image-container" id="main-image" role="img" aria-label="Kiosk Image">
-                <span class="image-counter">1/1</span>
+    <div id="kiosk-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" aria-label="Close modal">×</span>
+            <div class="modal-image-gallery">
+                <button class="slider-btn prev-image-btn" aria-label="Previous Image">❮</button>
+                <div class="main-image-container" id="main-image" role="img" aria-label="Kiosk Image">
+                    <span class="image-counter">1/1</span>
+                </div>
+                <button class="slider-btn next-image-btn" aria-label="Next Image">❯</button>
+                <div class="thumbnail-grid" id="thumbnail-grid"></div>
             </div>
-            <button class="slider-btn next-image-btn" aria-label="Next Image">❯</button>
-            <div class="thumbnail-grid" id="thumbnail-grid"></div>
-        </div>
-        <div class="modal-details">
-            <div class="modal-shop" id="modal-shop"></div>
-            <h3 id="modal-title"></h3>
-            <p id="modal-sqft"></p>
-            <p id="modal-rental"></p>
-            <a href="#contact" class="inquire-now">Inquire Now <i class="fas fa-arrow-right"></i></a>
+            <div class="modal-details">
+                <div class="modal-shop" id="modal-shop"></div>
+                <h3 id="modal-title"></h3>
+                <p id="modal-sqft"></p>
+                <p id="modal-rental"></p>
+                <a href="#contact" class="inquire-now">Inquire Now <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
     </div>
-</div>
 
-<div id="image-lightbox" class="image-lightbox">
-    <div class="lightbox-content">
-        <span class="lightbox-close" aria-label="Close lightbox">×</span>
-        <button class="slider-btn prev-lightbox-btn" aria-label="Previous Image">❮</button>
-        <img id="lightbox-image" class="lightbox-image" src="" alt="Magnified Kiosk Image">
-        <button class="slider-btn next-lightbox-btn" aria-label="Next Image">❯</button>
-        <span class="image-counter">1/1</span>
+    <div id="image-lightbox" class="image-lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" aria-label="Close lightbox">×</span>
+            <button class="slider-btn prev-lightbox-btn" aria-label="Previous Image">❮</button>
+            <img id="lightbox-image" class="lightbox-image" src="" alt="Magnified Kiosk Image">
+            <button class="slider-btn next-lightbox-btn" aria-label="Next Image">❯</button>
+            <span class="image-counter">1/1</span>
+        </div>
     </div>
-</div>
     <section id="events" class="cta-section">
         <div class="cta-content">
             <h2>Host Your Next Event at Our Lakes</h2>
@@ -1463,7 +1475,7 @@
                 events. All facilities designed with sustainability in mind.</p>
             <div class="cta-buttons">
                 <a href="/events.html" class="cta-button primary-btn">Inquire About Events</a>
-                <a href="#gallery" class="cta-button secondary-btn">View Event Spaces</a>
+                <a href="/events.html" class="cta-button secondary-btn">View Event Spaces</a>
             </div>
         </div>
     </section>
@@ -1521,30 +1533,6 @@
         </div>
     </section>
 
-    <section id="gallery" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Lake Gallery</h2>
-                <p>Explore the beauty and transformation of Coimbatore's lakes</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item" style="background-image: url('Kumarasamy_lake_1.jpg');" role="img"
-                    aria-label="Kumarasamy Lake View"></div>
-                <div class="gallery-item" style="background-image: url('Kumarasamy_lake_2.jpg');" role="img"
-                    aria-label="Kumarasamy Lake Scenery"></div>
-                <div class="gallery-item" style="background-image: url('Valankulam lake_1.png');" role="img"
-                    aria-label="Valankulam Lake View"></div>
-                <div class="gallery-item" style="background-image: url('Valankulam lake_2.png');" role="img"
-                    aria-label="Valankulam Lake Scenery"></div>
-                <div class="gallery-item" style="background-image: url('Periyakulam Lake_pic.jpg');" role="img"
-                    aria-label="Periyakulam Lake View"></div>
-                <div class="gallery-item" style="background-image: url('Krishnampathy lake_Pic.jpg');" role="img"
-                    aria-label="Krishnampathy Lake View"></div>
-                <div class="gallery-item" style="background-image: url('Selvachinthamani lake.jpg');" role="img"
-                    aria-label="Selvachinthamani Lake View"></div>
-            </div>
-        </div>
-    </section>
 
     <section id="contact" class="section form-section">
         <div class="container">
@@ -1596,19 +1584,34 @@
             <div class="footer-column">
                 <h3>Contact Info</h3>
                 <div class="footer-contact">
-                    <p>Email: <a href="mailto:lakesofcoimbatore@gmail.com"
-                            style="color: inherit; text-decoration: none;">lakesofcoimbatore@gmail.com</a></p>
-                    <p>Phone: <a href="tel:+919363981304" style="color: inherit; text-decoration: none;">+91 936 398
-                            1304</a></p>
+                    <p>Email:
+                        <a href="mailto:lakesofcoimbatore@gmail.com" style="color: inherit; text-decoration: none;">
+                            lakesofcoimbatore@gmail.com
+                        </a>
+                    </p>
+                    <p>Phone:
+                        <a href="tel:+919363981304" style="color: inherit; text-decoration: none;">
+                            +91 936 398 1304
+                        </a>
+                    </p>
                     <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                         <a href="https://www.instagram.com/lakesofcoimbatore?igsh=d3FvM3R5NDQwbTN4" class="social-link"
-                            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <div class="footer-seal">
             <i class="fas fa-shield-alt"></i>
@@ -1627,18 +1630,18 @@
         });
 
         // Section fade-in on scroll
-const sections = document.querySelectorAll('.section');
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    },
-    { threshold: 0.1 }
-);
-sections.forEach((section) => observer.observe(section));
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+        sections.forEach((section) => observer.observe(section));
 
         // Hamburger menu toggle
         const hamburger = document.querySelector('.hamburger');
@@ -1662,23 +1665,23 @@ sections.forEach((section) => observer.observe(section));
             hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
         });
 
-    if (navLinks) {
-    navLinks.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            hamburger.textContent = '☰';
-        });
-    });
-}
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.textContent = '☰';
+                });
+            });
+        }
 
-// Kiosk section toggle
-if (kioskToggle) {
-    kioskToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        kioskSection.classList.toggle('active');
-        kioskSection.scrollIntoView({ behavior: 'smooth' });
-    });
-}
+        // Kiosk section toggle
+        if (kioskToggle) {
+            kioskToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                kioskSection.classList.toggle('active');
+                kioskSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        }
 
         // Kiosk details data
         const kioskData = {
@@ -1756,6 +1759,28 @@ if (kioskToggle) {
                 sqft: '80-230 sq.ft',
                 rental: '₹25,000-₹35,000/month'
             },
+            "Valankulam UFO": {
+                images: [
+                    { src: '/Sevanthi2.jpg', shop: 'VUF1E' },
+                    { src: '/Sevanthi1.jpg', shop: 'VUF1E' },
+                    { src: '/Malli2.jpg', shop: 'Malli' },
+                    { src: '/Malli1.jpg', shop: 'Malli' },
+                    { src: '/Kurichi2.jpg', shop: 'Kurichi' },
+                    { src: '/Kurichi1.jpg', shop: 'Kurichi' },
+                    { src: '/Vaagai2.jpg', shop: 'VUF2B' },
+                    { src: '/Vaagai1.jpg', shop: 'VUF2B' },
+                    { src: '/Vaagai3.jpg', shop: 'VUF2B' },
+                    { src: '/Vaagai4.jpg', shop: 'VUF2B' },
+                    { src: '/Vilvam2.jpg', shop: 'VUF1B' },
+                    { src: '/Vilvam1.jpg', shop: 'VUF1B' },
+                    { src: '/Vilvam3.jpg', shop: 'VUF1B' },
+                    { src: '/Vilvam4.jpg', shop: 'VUF1B' }
+                ],
+                sqft: '10x8 to 20x8',
+                rental: 'Contact for pricing'
+            },
+
+
             Selvachinthamani: {
                 images: [
                     { src: '/s1.jpeg', shop: 'S1' },
@@ -1776,332 +1801,332 @@ if (kioskToggle) {
                 const lake = card.dataset.lake;
                 const data = kioskData[lake];
 
-                 // Store current lake for navigation
-        mainImage.dataset.lake = lake;
-        mainImage.dataset.index = 0;
+                // Store current lake for navigation
+                mainImage.dataset.lake = lake;
+                mainImage.dataset.index = 0;
 
-        // Populate modal
-        modalShop.textContent = `Shop ID: ${data.images[0].shop.toUpperCase()}`;
-        modalTitle.textContent = `${lake} Lake Kiosk`;
-        modalSqft.textContent = `Size: ${data.sqft}`;
-        modalRental.textContent = `Rental Value: ${data.rental}`;
+                // Populate modal
+                modalShop.textContent = `Shop ID: ${data.images[0].shop.toUpperCase()}`;
+                modalTitle.textContent = `${lake} Lake Kiosk`;
+                modalSqft.textContent = `Size: ${data.sqft}`;
+                modalRental.textContent = `Rental Value: ${data.rental}`;
 
-        // Populate main image and thumbnails
-        const firstImageSrc = data.images[0].src || 'https://via.placeholder.com/200x150?text=No+Image';
-        mainImage.style.backgroundImage = `url('${firstImageSrc}')`;
-        mainImage.dataset.src = firstImageSrc;
-        mainImage.innerHTML = `<span class="image-counter">1/${data.images.length}</span>`;
+                // Populate main image and thumbnails
+                const firstImageSrc = data.images[0].src || 'https://via.placeholder.com/200x150?text=No+Image';
+                mainImage.style.backgroundImage = `url('${firstImageSrc}')`;
+                mainImage.dataset.src = firstImageSrc;
+                mainImage.innerHTML = `<span class="image-counter">1/${data.images.length}</span>`;
 
-        thumbnailGrid.innerHTML = '';
-        data.images.forEach((image, index) => {
-            const thumbDiv = document.createElement('div');
-            thumbDiv.classList.add('thumbnail');
-            if (index === 0) thumbDiv.classList.add('active');
-            const thumbSrc = image.src || 'https://via.placeholder.com/200x150?text=No+Image';
-            thumbDiv.style.backgroundImage = `url('${thumbSrc}')`;
-            thumbDiv.dataset.src = thumbSrc;
-            thumbDiv.dataset.shop = image.shop;
-            thumbDiv.dataset.index = index;
-            thumbDiv.setAttribute('aria-label', `Thumbnail for ${image.shop}`);
-            thumbnailGrid.appendChild(thumbDiv);
+                thumbnailGrid.innerHTML = '';
+                data.images.forEach((image, index) => {
+                    const thumbDiv = document.createElement('div');
+                    thumbDiv.classList.add('thumbnail');
+                    if (index === 0) thumbDiv.classList.add('active');
+                    const thumbSrc = image.src || 'https://via.placeholder.com/200x150?text=No+Image';
+                    thumbDiv.style.backgroundImage = `url('${thumbSrc}')`;
+                    thumbDiv.dataset.src = thumbSrc;
+                    thumbDiv.dataset.shop = image.shop;
+                    thumbDiv.dataset.index = index;
+                    thumbDiv.setAttribute('aria-label', `Thumbnail for ${image.shop}`);
+                    thumbnailGrid.appendChild(thumbDiv);
+                });
+
+                // Update navigation buttons
+                updateNavButtons(data.images.length);
+
+                modal.classList.add('active');
+            });
         });
 
-        // Update navigation buttons
-        updateNavButtons(data.images.length);
+        // Thumbnail click handler
+        thumbnailGrid.addEventListener('click', (e) => {
+            if (e.target.classList.contains('thumbnail')) {
+                updateImage(e.target.dataset.index, e.target.parentElement.children.length);
+                e.target.parentElement.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+                e.target.classList.add('active');
+            }
+        });
 
-        modal.classList.add('active');
-    });
-});
+        // Modal navigation button handlers
+        const prevImageBtn = document.querySelector('.prev-image-btn');
+        const nextImageBtn = document.querySelector('.next-image-btn');
 
-// Thumbnail click handler
-thumbnailGrid.addEventListener('click', (e) => {
-    if (e.target.classList.contains('thumbnail')) {
-        updateImage(e.target.dataset.index, e.target.parentElement.children.length);
-        e.target.parentElement.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
-        e.target.classList.add('active');
-    }
-});
-
-// Modal navigation button handlers
-const prevImageBtn = document.querySelector('.prev-image-btn');
-const nextImageBtn = document.querySelector('.next-image-btn');
-
-if (prevImageBtn) {
-    prevImageBtn.addEventListener('click', () => {
-        const currentIndex = parseInt(mainImage.dataset.index);
-        if (currentIndex > 0) {
-            updateImage(currentIndex - 1, thumbnailGrid.children.length);
+        if (prevImageBtn) {
+            prevImageBtn.addEventListener('click', () => {
+                const currentIndex = parseInt(mainImage.dataset.index);
+                if (currentIndex > 0) {
+                    updateImage(currentIndex - 1, thumbnailGrid.children.length);
+                }
+            });
         }
-    });
-}
 
-if (nextImageBtn) {
-    nextImageBtn.addEventListener('click', () => {
-        const currentIndex = parseInt(mainImage.dataset.index);
-        const totalImages = thumbnailGrid.children.length;
-        if (currentIndex < totalImages - 1) {
-            updateImage(currentIndex + 1, totalImages);
+        if (nextImageBtn) {
+            nextImageBtn.addEventListener('click', () => {
+                const currentIndex = parseInt(mainImage.dataset.index);
+                const totalImages = thumbnailGrid.children.length;
+                if (currentIndex < totalImages - 1) {
+                    updateImage(currentIndex + 1, totalImages);
+                }
+            });
         }
-    });
-}
 
-// Lightbox navigation button handlers
-const prevLightboxBtn = document.querySelector('.prev-lightbox-btn');
-const nextLightboxBtn = document.querySelector('.next-lightbox-btn');
+        // Lightbox navigation button handlers
+        const prevLightboxBtn = document.querySelector('.prev-lightbox-btn');
+        const nextLightboxBtn = document.querySelector('.next-lightbox-btn');
 
-if (prevLightboxBtn) {
-    prevLightboxBtn.addEventListener('click', () => {
-        const currentIndex = parseInt(lightboxImage.dataset.index);
-        if (currentIndex > 0) {
-            updateLightboxImage(currentIndex - 1);
+        if (prevLightboxBtn) {
+            prevLightboxBtn.addEventListener('click', () => {
+                const currentIndex = parseInt(lightboxImage.dataset.index);
+                if (currentIndex > 0) {
+                    updateLightboxImage(currentIndex - 1);
+                }
+            });
         }
-    });
-}
 
-if (nextLightboxBtn) {
-    nextLightboxBtn.addEventListener('click', () => {
-        const currentIndex = parseInt(lightboxImage.dataset.index);
-        const totalImages = kioskData[lightboxImage.dataset.lake].images.length;
-        if (currentIndex < totalImages - 1) {
-            updateLightboxImage(currentIndex + 1);
+        if (nextLightboxBtn) {
+            nextLightboxBtn.addEventListener('click', () => {
+                const currentIndex = parseInt(lightboxImage.dataset.index);
+                const totalImages = kioskData[lightboxImage.dataset.lake].images.length;
+                if (currentIndex < totalImages - 1) {
+                    updateLightboxImage(currentIndex + 1);
+                }
+            });
         }
-    });
-}
 
-// Function to update modal image
-function updateImage(index, totalImages) {
-    const thumbnails = thumbnailGrid.querySelectorAll('.thumbnail');
-    const imageSrc = thumbnails[index].dataset.src;
-    const shopName = thumbnails[index].dataset.shop;
+        // Function to update modal image
+        function updateImage(index, totalImages) {
+            const thumbnails = thumbnailGrid.querySelectorAll('.thumbnail');
+            const imageSrc = thumbnails[index].dataset.src;
+            const shopName = thumbnails[index].dataset.shop;
 
-    mainImage.style.backgroundImage = `url('${imageSrc}')`;
-    mainImage.dataset.src = imageSrc;
-    mainImage.dataset.index = index;
-    mainImage.innerHTML = `<span class="image-counter">${parseInt(index) + 1}/${totalImages}</span>`;
-    modalShop.textContent = `Shop ID: ${shopName.toUpperCase()}`;
+            mainImage.style.backgroundImage = `url('${imageSrc}')`;
+            mainImage.dataset.src = imageSrc;
+            mainImage.dataset.index = index;
+            mainImage.innerHTML = `<span class="image-counter">${parseInt(index) + 1}/${totalImages}</span>`;
+            modalShop.textContent = `Shop ID: ${shopName.toUpperCase()}`;
 
-    thumbnails.forEach(thumb => thumb.classList.remove('active'));
-    thumbnails[index].classList.add('active');
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            thumbnails[index].classList.add('active');
 
-    updateNavButtons(totalImages);
-}
+            updateNavButtons(totalImages);
+        }
 
-// Function to update lightbox image
-function updateLightboxImage(index) {
-    const lake = lightboxImage.dataset.lake;
-    const data = kioskData[lake];
-    const imageSrc = data.images[index].src || 'https://via.placeholder.com/200x150?text=No+Image';
-    const shopName = data.images[index].shop;
+        // Function to update lightbox image
+        function updateLightboxImage(index) {
+            const lake = lightboxImage.dataset.lake;
+            const data = kioskData[lake];
+            const imageSrc = data.images[index].src || 'https://via.placeholder.com/200x150?text=No+Image';
+            const shopName = data.images[index].shop;
 
-    lightboxImage.src = imageSrc;
-    lightboxImage.dataset.index = index;
-    lightboxImage.alt = `Kiosk Image ${shopName}`;
-    const lightboxCounter = imageLightbox.querySelector('.image-counter');
-    if (lightboxCounter) {
-        lightboxCounter.textContent = `${parseInt(index) + 1}/${data.images.length}`;
-    }
-    // Update modal to stay in sync
-    mainImage.style.backgroundImage = `url(${imageSrc})`;
-    mainImage.dataset.index = index;
-    mainImage.innerHTML = `<span class="image-counter">${parseInt(index) + 1}/${data.images.length}</span>`;
-    modalShop.textContent = `Shop ID: ${shopName.toUpperCase()}`;
+            lightboxImage.src = imageSrc;
+            lightboxImage.dataset.index = index;
+            lightboxImage.alt = `Kiosk Image ${shopName}`;
+            const lightboxCounter = imageLightbox.querySelector('.image-counter');
+            if (lightboxCounter) {
+                lightboxCounter.textContent = `${parseInt(index) + 1}/${data.images.length}`;
+            }
+            // Update modal to stay in sync
+            mainImage.style.backgroundImage = `url(${imageSrc})`;
+            mainImage.dataset.index = index;
+            mainImage.innerHTML = `<span class="image-counter">${parseInt(index) + 1}/${data.images.length}</span>`;
+            modalShop.textContent = `Shop ID: ${shopName.toUpperCase()}`;
 
-    const thumbnails = thumbnailGrid.querySelectorAll('.thumbnail');
-    thumbnails.forEach(thumb => thumb.classList.remove('active'));
-    thumbnails[index].classList.add('active');
+            const thumbnails = thumbnailGrid.querySelectorAll('.thumbnail');
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            thumbnails[index].classList.add('active');
 
-    updateNavButtons(data.images.length);
-    updateLightboxNavButtons(data.images.length);
-}
+            updateNavButtons(data.images.length);
+            updateLightboxNavButtons(data.images.length);
+        }
 
-// Function to update modal navigation buttons
-function updateNavButtons(totalImages) {
-    const currentIndex = parseInt(mainImage.dataset.index);
-    if (prevImageBtn) prevImageBtn.disabled = currentIndex === 0;
-    if (nextImageBtn) nextImageBtn.disabled = currentIndex === totalImages - 1;
-}
+        // Function to update modal navigation buttons
+        function updateNavButtons(totalImages) {
+            const currentIndex = parseInt(mainImage.dataset.index);
+            if (prevImageBtn) prevImageBtn.disabled = currentIndex === 0;
+            if (nextImageBtn) nextImageBtn.disabled = currentIndex === totalImages - 1;
+        }
 
-// Function to update lightbox navigation buttons
-function updateLightboxNavButtons(totalImages) {
-    const currentIndex = parseInt(lightboxImage.dataset.index);
-    if (prevLightboxBtn) prevLightboxBtn.disabled = currentIndex === 0;
-    if (nextLightboxBtn) nextLightboxBtn.disabled = currentIndex === totalImages - 1;
-}
+        // Function to update lightbox navigation buttons
+        function updateLightboxNavButtons(totalImages) {
+            const currentIndex = parseInt(lightboxImage.dataset.index);
+            if (prevLightboxBtn) prevLightboxBtn.disabled = currentIndex === 0;
+            if (nextLightboxBtn) nextLightboxBtn.disabled = currentIndex === totalImages - 1;
+        }
 
-// Open lightbox on main image click
-mainImage.addEventListener('click', () => {
-    const imageSrc = mainImage.dataset.src;
-    const lake = mainImage.dataset.lake;
-    const index = parseInt(mainImage.dataset.index);
-    const totalImages = kioskData[lake].images.length;
+        // Open lightbox on main image click
+        mainImage.addEventListener('click', () => {
+            const imageSrc = mainImage.dataset.src;
+            const lake = mainImage.dataset.lake;
+            const index = parseInt(mainImage.dataset.index);
+            const totalImages = kioskData[lake].images.length;
 
-    lightboxImage.src = imageSrc;
-    lightboxImage.alt = mainImage.getAttribute('aria-label');
-    lightboxImage.dataset.lake = lake;
-    lightboxImage.dataset.index = index;
-    const lightboxCounter = imageLightbox.querySelector('.image-counter');
-    if (lightboxCounter) {
-        lightboxCounter.textContent = `${index + 1}/${totalImages}`;
-    }
+            lightboxImage.src = imageSrc;
+            lightboxImage.alt = mainImage.getAttribute('aria-label');
+            lightboxImage.dataset.lake = lake;
+            lightboxImage.dataset.index = index;
+            const lightboxCounter = imageLightbox.querySelector('.image-counter');
+            if (lightboxCounter) {
+                lightboxCounter.textContent = `${index + 1}/${totalImages}`;
+            }
 
-    updateLightboxNavButtons(totalImages);
-    imageLightbox.classList.add('active');
-});
+            updateLightboxNavButtons(totalImages);
+            imageLightbox.classList.add('active');
+        });
 
 
-// Close modal
-modalClose.addEventListener('click', () => {
-    modal.classList.remove('active');
-});
-
-// Close modal on outside click
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.classList.remove('active');
-    }
-});
-
-// Close lightbox
-lightboxClose.addEventListener('click', () => {
-    imageLightbox.classList.remove('active');
-});
-
-// Close lightbox on outside click
-imageLightbox.addEventListener('click', (e) => {
-    if (e.target === imageLightbox) {
-        imageLightbox.classList.remove('active');
-    }
-});
-
-// Smooth scroll for Inquire Now button
-document.querySelectorAll('.inquire-now').forEach(button => {
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
-        modal.classList.remove('active');
-        imageLightbox.classList.remove('active');
-        const contactSection = document.querySelector('#contact');
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-    });
-});
-
-// Keyboard navigation for accessibility
-document.addEventListener('keydown', (e) => {
-    if (modal.classList.contains('active') && !imageLightbox.classList.contains('active')) {
-        const currentIndex = parseInt(mainImage.dataset.index);
-        const totalImages = thumbnailGrid.children.length;
-        if (e.key === 'ArrowLeft' && currentIndex > 0) {
-            updateImage(currentIndex - 1, totalImages);
-        } else if (e.key === 'ArrowRight' && currentIndex < totalImages - 1) {
-            updateImage(currentIndex + 1, totalImages);
-        } else if (e.key === 'Escape') {
+        // Close modal
+        modalClose.addEventListener('click', () => {
             modal.classList.remove('active');
-        }
-    } else if (imageLightbox.classList.contains('active')) {
-        const currentIndex = parseInt(lightboxImage.dataset.index);
-        const totalImages = kioskData[lightboxImage.dataset.lake].images.length;
-        if (e.key === 'ArrowLeft' && currentIndex > 0) {
-            updateLightboxImage(currentIndex - 1);
-        } else if (e.key === 'ArrowRight' && currentIndex < totalImages - 1) {
-            updateLightboxImage(currentIndex + 1);
-        } else if (e.key === 'Escape') {
+        });
+
+        // Close modal on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Close lightbox
+        lightboxClose.addEventListener('click', () => {
             imageLightbox.classList.remove('active');
+        });
+
+        // Close lightbox on outside click
+        imageLightbox.addEventListener('click', (e) => {
+            if (e.target === imageLightbox) {
+                imageLightbox.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll for Inquire Now button
+        document.querySelectorAll('.inquire-now').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.remove('active');
+                imageLightbox.classList.remove('active');
+                const contactSection = document.querySelector('#contact');
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Keyboard navigation for accessibility
+        document.addEventListener('keydown', (e) => {
+            if (modal.classList.contains('active') && !imageLightbox.classList.contains('active')) {
+                const currentIndex = parseInt(mainImage.dataset.index);
+                const totalImages = thumbnailGrid.children.length;
+                if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                    updateImage(currentIndex - 1, totalImages);
+                } else if (e.key === 'ArrowRight' && currentIndex < totalImages - 1) {
+                    updateImage(currentIndex + 1, totalImages);
+                } else if (e.key === 'Escape') {
+                    modal.classList.remove('active');
+                }
+            } else if (imageLightbox.classList.contains('active')) {
+                const currentIndex = parseInt(lightboxImage.dataset.index);
+                const totalImages = kioskData[lightboxImage.dataset.lake].images.length;
+                if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                    updateLightboxImage(currentIndex - 1);
+                } else if (e.key === 'ArrowRight' && currentIndex < totalImages - 1) {
+                    updateLightboxImage(currentIndex + 1);
+                } else if (e.key === 'Escape') {
+                    imageLightbox.classList.remove('active');
+                }
+            }
+        });
+
+        // SweetAlert2 Popup for Toll-Free Number
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!localStorage.getItem('tollFreePopupShown')) {
+                setTimeout(() => {
+                    Swal.fire({
+                        title: 'Toll-Free Number',
+                        text: 'For urgent inquiries, call us at 18001230939',
+                        icon: 'info',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#4CAF50',
+                        background: '#F5F5F5',
+                        customClass: {
+                            popup: 'sweet-alert-popup',
+                            title: 'sweet-alert-title',
+                            content: 'sweet-alert-content',
+                            confirmButton: 'sweet-alert-button'
+                        }
+                    }).then(() => {
+                        localStorage.setItem('tollFreePopupShown', 'true');
+                    });
+                }, 3000);
+            }
+
+            const tollFreeBtn = document.getElementById('toll-free-btn');
+            if (tollFreeBtn) {
+                tollFreeBtn.addEventListener('click', () => {
+                    Swal.fire({
+                        title: 'Toll-Free Number',
+                        text: 'For urgent inquiries, call us at 18001230939',
+                        icon: 'info',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#4CAF50',
+                        background: '#F5F5F5',
+                        customClass: {
+                            popup: 'sweet-alert-popup',
+                            title: 'sweet-alert-title',
+                            content: 'sweet-alert-content',
+                            confirmButton: 'sweet-alert-button'
+                        }
+                    });
+                });
+            }
+        });
+
+        // Copy to Clipboard Functionality
+        const copyBtn = document.querySelector('.copy-btn');
+        const tollFreeLink = document.querySelector('.toll-free-link');
+
+        if (copyBtn) {
+            copyBtn.addEventListener('click', () => {
+                const number = tollFreeLink.textContent;
+                navigator.clipboard.writeText(number).then(() => {
+                    Swal.fire({
+                        title: 'Copied!',
+                        text: 'Toll-Free number copied to clipboard.',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#4CAF50',
+                        background: '#F5F5F5',
+                        customClass: {
+                            popup: 'sweet-alert-popup',
+                            title: 'sweet-alert-title',
+                            content: 'sweet-alert-content',
+                            confirmButton: 'sweet-alert-button'
+                        },
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+                }).catch(() => {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Failed to copy number.',
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#4CAF50',
+                        background: '#F5F5F5'
+                    });
+                });
+            });
         }
-    }
-});
 
-// SweetAlert2 Popup for Toll-Free Number
-document.addEventListener('DOMContentLoaded', () => {
-    if (!localStorage.getItem('tollFreePopupShown')) {
-        setTimeout(() => {
-            Swal.fire({
-                title: 'Toll-Free Number',
-                text: 'For urgent inquiries, call us at 18001230939',
-                icon: 'info',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#4CAF50',
-                background: '#F5F5F5',
-                customClass: {
-                    popup: 'sweet-alert-popup',
-                    title: 'sweet-alert-title',
-                    content: 'sweet-alert-content',
-                    confirmButton: 'sweet-alert-button'
-                }
-            }).then(() => {
-                localStorage.setItem('tollFreePopupShown', 'true');
+        const closeTollFreeBtn = document.querySelector('.close-toll-free');
+        if (closeTollFreeBtn) {
+            closeTollFreeBtn.addEventListener('click', () => {
+                document.querySelector('.toll-free-display').style.display = 'none';
             });
-        }, 3000);
-    }
+        }
 
-    const tollFreeBtn = document.getElementById('toll-free-btn');
-    if (tollFreeBtn) {
-        tollFreeBtn.addEventListener('click', () => {
-            Swal.fire({
-                title: 'Toll-Free Number',
-                text: 'For urgent inquiries, call us at 18001230939',
-                icon: 'info',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#4CAF50',
-                background: '#F5F5F5',
-                customClass: {
-                    popup: 'sweet-alert-popup',
-                    title: 'sweet-alert-title',
-                    content: 'sweet-alert-content',
-                    confirmButton: 'sweet-alert-button'
-                }
-            });
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.querySelector('.toll-free-display').style.opacity = '1';
+            }, 3000);
         });
-    }
-});
-
-// Copy to Clipboard Functionality
-const copyBtn = document.querySelector('.copy-btn');
-const tollFreeLink = document.querySelector('.toll-free-link');
-
-if (copyBtn) {
-    copyBtn.addEventListener('click', () => {
-        const number = tollFreeLink.textContent;
-        navigator.clipboard.writeText(number).then(() => {
-            Swal.fire({
-                title: 'Copied!',
-                text: 'Toll-Free number copied to clipboard.',
-                icon: 'success',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#4CAF50',
-                background: '#F5F5F5',
-                customClass: {
-                    popup: 'sweet-alert-popup',
-                    title: 'sweet-alert-title',
-                    content: 'sweet-alert-content',
-                    confirmButton: 'sweet-alert-button'
-                },
-                timer: 1500,
-                showConfirmButton: false
-            });
-        }).catch(() => {
-            Swal.fire({
-                title: 'Error',
-                text: 'Failed to copy number.',
-                icon: 'error',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#4CAF50',
-                background: '#F5F5F5'
-            });
-        });
-    });
-}
-
-const closeTollFreeBtn = document.querySelector('.close-toll-free');
-if (closeTollFreeBtn) {
-    closeTollFreeBtn.addEventListener('click', () => {
-        document.querySelector('.toll-free-display').style.display = 'none';
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        document.querySelector('.toll-free-display').style.opacity = '1';
-    }, 3000);
-});
         /*copyBtn.addEventListener('click', () => {
             const number = tollFreeLink.textContent;
             navigator.clipboard.writeText(number).then(() => {
