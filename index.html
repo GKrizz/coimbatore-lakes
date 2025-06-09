@@ -46,7 +46,6 @@
 
     <!-- SweetAlert2 CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
@@ -137,6 +136,8 @@
         ]
     }
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
         .close-toll-free {
@@ -1233,6 +1234,488 @@
                 padding: 4px 8px;
             }
         }
+
+        /* Kiosk Spaces Section */
+#kiosk-spaces .lakes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.kiosk-lake-card {
+  background: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.kiosk-lake-card:hover {
+  transform: translateY(-5px);
+}
+
+.kiosk-lake-image {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.lake-content {
+  padding: 1rem;
+  text-align: center;
+}
+
+.lake-content h3 {
+  margin: 0.5rem 0;
+  font-size: clamp(1.2rem, 3vw, 1.4rem);
+  color: var(--text-dark);
+}
+
+.lake-content p {
+  margin: 0.5rem 0;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: var(--text-light);
+}
+
+/* Modal Image Gallery */
+.modal-image-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.main-image-container {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  pointer-events: auto; /* Ensure clickable */
+}
+
+.image-counter {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--white);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  pointer-events: none; /* Prevent counter from blocking clicks */
+}
+
+.thumbnail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 80px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.thumbnail.active {
+  border-color: var(--primary-green);
+}
+
+.no-image {
+  text-align: center;
+  color: var(--text-dark);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  padding: 1rem;
+}
+
+/* Shop Dropdown */
+.shop-select {
+  background-color: var(--secondary-green);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  cursor: pointer;
+  margin: 0.5rem 0;
+  width: 100%;
+  max-width: 200px;
+  transition: var(--transition);
+}
+
+.shop-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--primary-green);
+}
+
+/* Category Buttons */
+.category-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.category-btn {
+  background: var(--secondary-green);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  transition: var(--transition);
+}
+
+.category-btn:hover, .category-btn.active {
+  background: var(--primary-green);
+}
+
+/* Lightbox */
+.image-lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 10px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 2rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.slider-btn {
+  background: var(--primary-green);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+}
+
+.prev-lightbox-btn {
+  left: -40px;
+}
+
+.next-lightbox-btn {
+  right: -40px;
+}
+
+.prev-image-btn {
+  left: 10px;
+}
+
+.next-image-btn {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .shop-select {
+    width: 100%;
+  }
+
+  .main-image-container {
+    height: 200px;
+  }
+
+  .slider-btn {
+    font-size: 1rem;
+    padding: 0.3rem;
+  }
+
+  .prev-lightbox-btn, .next-lightbox-btn {
+    left: 10px;
+    right: 10px;
+  }
+}
+
+
+/* Kiosk Spaces Section */
+#kiosk-spaces .lakes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.kiosk-lake-card {
+  background: #FFFFFF;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.kiosk-lake-card:hover {
+  transform: translateY(-5px);
+}
+
+.kiosk-lake-image {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.lake-content {
+  padding: 1rem;
+  text-align: center;
+}
+
+.lake-content h3 {
+  margin: 0.5rem 0;
+  font-size: clamp(1.2rem, 3vw, 1.4rem);
+  color: #333333;
+}
+
+.lake-content p {
+  margin: 0.5rem 0;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: #666666;
+}
+
+/* Modal Image Gallery */
+.modal-image-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.main-image-container {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  pointer-events: auto; /* Ensure clickable */
+}
+
+.image-counter {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #FFFFFF;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  pointer-events: none; /* Prevent counter from blocking clicks */
+}
+
+.thumbnail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 80px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.thumbnail.active {
+  border-color: #4CAF50;
+}
+
+.no-image {
+  text-align: center;
+  color: #333333;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  padding: 1rem;
+}
+
+/* Shop Dropdown */
+.shop-select {
+  background-color: #81C784;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  cursor: pointer;
+  margin: 0.5rem 0;
+  width: 100%;
+  max-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.shop-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #4CAF50;
+}
+
+/* Category Buttons */
+.category-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.category-btn {
+  background: #81C784;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  transition: all 0.3s ease;
+}
+
+.category-btn:hover, .category-btn.active {
+  background: #4CAF50;
+}
+
+/* Lightbox */
+.image-lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 10px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 2rem;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.slider-btn {
+  background: #4CAF50;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+}
+
+.prev-lightbox-btn {
+  left: -40px;
+}
+
+.next-lightbox-btn {
+  right: -40px;
+}
+
+.prev-image-btn {
+  left: 10px;
+}
+
+.next-image-btn {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .shop-select {
+    width: 100%;
+  }
+
+  .main-image-container {
+    height: 200px;
+  }
+
+  .slider-btn {
+    font-size: 1rem;
+    padding: 0.3rem;
+  }
+
+  .prev-lightbox-btn, .next-lightbox-btn {
+    left: 10px;
+    right: 10px;
+  }
+}
+
+/* Modal Notes */
+#modal-notes {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: #666666;
+  margin: 0.5rem 0;
+}
     </style>
 </head>
 
@@ -1377,87 +1860,94 @@
         </div>
     </section>
 
-    <section id="kiosk-spaces" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Kiosk Spaces at Our Lakes</h2>
-                <p>Select a lake to view available kiosk spaces and rental details</p>
-            </div>
-            <div class="kiosk-lakes-grid">
-                <article class="kiosk-lake-card" data-lake="Kumarasamy">
-                    <div class="kiosk-lake-image" style="background-image: url('Kumarasamy_lake_1.jpg');" role="img"
-                        aria-label="Kumarasamy Lake Kiosk"></div>
-                    <div class="kiosk-lake-overlay">
-                        <h3>Kumarasamy Lake</h3>
-                    </div>
-                </article>
-                <article class="kiosk-lake-card" data-lake="Krishnampathy">
-                    <div class="kiosk-lake-image" style="background-image: url('Krishnampathy lake_Pic.jpg');"
-                        role="img" aria-label="Krishnampathy Lake Kiosk"></div>
-                    <div class="kiosk-lake-overlay">
-                        <h3>Krishnampathy Lake</h3>
-                    </div>
-                </article>
-                <article class="kiosk-lake-card" data-lake="Periyakulam">
-                    <div class="kiosk-lake-image" style="background-image: url('Periyakulam Lake_pic.jpg');" role="img"
-                        aria-label="Periyakulam Lake Kiosk"></div>
-                    <div class="kiosk-lake-overlay">
-                        <h3>Periyakulam Lake</h3>
-                    </div>
-                </article>
-                <article class="kiosk-lake-card" data-lake="Kurichi">
-                    <div class="kiosk-lake-image" style="background-image: url('Kurichi_2.jpg');" role="img"
-                        aria-label="Kurichi Lake Kiosk"></div>
-                    <div class="kiosk-lake-overlay">
-                        <h3>Kurichi Lake</h3>
-                    </div>
-                </article>
-                <article class="kiosk-lake-card" data-lake="Valankulam">
-                    <div class="kiosk-lake-image" style="background-image: url('Valankulam lake_1.png');" role="img"
-                        aria-label="Valankulam Lake Kiosk"></div>
-                    <div class="kiosk-lake-overlay">
-                        <h3>Valankulam Lake</h3>
-                    </div>
-                </article>
-                <article class="kiosk-lake-card" data-lake="Valankulam UFO">
-                    <div class="kiosk-lake-image" style="background-image: url('Valankulam UFO lake_1.jpg');" role="img"
-                        aria-label="Valankulam UFO Lake Kiosk"></div>
-                    <div class="kiosk-lake-overlay">
-                        <h3>Valankulam UFO</h3>
-                    </div>
-                </article>
-                <article class="kiosk-lake-card" data-lake="Selvachinthamani">
-                    <div class="kiosk-lake-image" style="background-image: url('Selvachinthamani lake.jpg');" role="img"
-                        aria-label="Selvachinthamani Lake Kiosk"></div>
-                    <div class="kiosk-lake-overlay">
-                        <h3>Selvachinthamani Lake</h3>
-                    </div>
-                </article>
-
-            </div>
-        </div>
-    </section>
-
-    <div id="kiosk-modal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" aria-label="Close modal">×</span>
-            <div class="modal-image-gallery">
-                <button class="slider-btn prev-image-btn" aria-label="Previous Image">❮</button>
-                <div class="main-image-container" id="main-image" role="img" aria-label="Kiosk Image">
-                    <span class="image-counter">1/1</span>
-                </div>
-                <button class="slider-btn next-image-btn" aria-label="Next Image">❯</button>
-                <div class="thumbnail-grid" id="thumbnail-grid"></div>
-            </div>
-            <div class="modal-details">
-                <div class="modal-shop" id="modal-shop"></div>
-                <h3 id="modal-title"></h3>
-                <p id="modal-sqft"></p>
-                <p id="modal-rental"></p>
-                <a href="#contact" class="inquire-now">Inquire Now <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
+<section id="kiosk-spaces" class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Kiosk Spaces at Our Lakes</h2>
+      <p>Explore available kiosk spaces for rent around Coimbatore's lakes</p>
     </div>
+    <div class="lakes-grid">
+      <article class="kiosk-lake-card" data-lake="Valankulam UFO">
+        <div class="kiosk-lake-image" style="background-image: url('./Valankulam UFO lake_1.jpg');" role="img" aria-label="Valankulam UFO Kiosk"></div>
+        <div class="lake-content">
+          <h3>Valankulam UFO</h3>
+          <p>Unique kiosk spaces with modern designs</p>
+          <p><strong>Sizes:</strong> 10x8 to 20x8</p>
+        </div>
+      </article>
+      <article class="kiosk-lake-card" data-lake="Valankulam">
+        <div class="kiosk-lake-image" style="background-image: url('./Valankulam\ lake_2.png');" role="img" aria-label="Valankulam Kiosk"></div>
+        <div class="lake-content">
+          <h3>Valankulam</h3>
+          <p>Prime locations for retail and food vendors</p>
+          <p><strong>Sizes:</strong> 80-230 sq.ft</p>
+        </div>
+      </article>
+      <article class="kiosk-lake-card" data-lake="Periyakulam">
+        <div class="kiosk-lake-image" style="background-image: url('./Periyakulam\ Lake_pic.jpg');" role="img" aria-label="Periyakulam Kiosk"></div>
+        <div class="lake-content">
+          <h3>Periyakulam</h3>
+          <p>Spaces for food courts and events</p>
+          <p><strong>Sizes:</strong> 80-224 sq.ft</p>
+        </div>
+      </article>
+      <article class="kiosk-lake-card" data-lake="Kurichi">
+        <div class="kiosk-lake-image" style="background-image: url('./Kurichi_2.jpg');" role="img" aria-label="Kurichi Kiosk"></div>
+        <div class="lake-content">
+          <h3>Kurichi</h3>
+          <p>Ideal for larger commercial setups</p>
+          <p><strong>Sizes:</strong> 200-330 sq.ft</p>
+        </div>
+      </article>
+      <article class="kiosk-lake-card" data-lake="Krishnampathy">
+        <div class="kiosk-lake-image" style="background-image: url('./Krishnampathy\ lake_Pic.jpg');" role="img" aria-label="Krishnampathy Kiosk"></div>
+        <div class="lake-content">
+          <h3>Krishnampathy</h3>
+          <p>Compact kiosks for small businesses</p>
+          <p><strong>Sizes:</strong> 36 sq.ft</p>
+        </div>
+      </article>
+      <article class="kiosk-lake-card" data-lake="Selvachinthamani">
+        <div class="kiosk-lake-image" style="background-image: url('./Selvachinthamani\ lake.jpg');" role="img" aria-label="Selvachinthamani Kiosk"></div>
+        <div class="lake-content">
+          <h3>Selvachinthamani</h3>
+          <p>Scenic locations for retail</p>
+          <p><strong>Sizes:</strong> 160 sq.ft</p>
+        </div>
+      </article>
+      <article class="kiosk-lake-card" data-lake="Kumarasamy">
+        <div class="kiosk-lake-image" style="background-image: url('./Kumarasamy_lake_1.jpg');" role="img" aria-label="Kumarasamy Kiosk"></div>
+        <div class="lake-content">
+          <h3>Kumarasamy</h3>
+          <p>Flexible spaces for various businesses</p>
+          <p><strong>Sizes:</strong> 36 sq.ft</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div id="kiosk-modal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" aria-label="Close modal">×</span>
+    <div class="modal-image-gallery">
+      <button class="slider-btn prev-image-btn" aria-label="Previous Image">❮</button>
+      <div class="main-image-container" id="main-image" role="img" aria-label="Kiosk Image">
+        <span class="image-counter">1/1</span>
+      </div>
+      <button class="slider-btn next-image-btn" aria-label="Next Image">❯</button>
+      <div class="thumbnail-grid" id="thumbnail-grid"></div>
+    </div>
+    <div class="modal-details">
+      <div class="modal-shop" id="modal-shop"></div>
+      <h3 id="modal-title"></h3>
+      <p id="modal-sqft"></p>
+      <p id="modal-rental"></p>
+      <p id="modal-notes"></p> <!-- Added missing element -->
+      <a href="#contact" class="inquire-now">Inquire Now <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</div>
 
     <div id="image-lightbox" class="image-lightbox">
         <div class="lightbox-content">
@@ -1623,518 +2113,731 @@
     </footer>
 
     <script>
-        // Navigation scroll effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            nav.classList.toggle('scrolled', window.scrollY > 50);
-        });
+       // Navigation scroll effect
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
+});
 
-        // Section fade-in on scroll
-        const sections = document.querySelectorAll('.section');
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            },
-            { threshold: 0.1 }
-        );
-        sections.forEach((section) => observer.observe(section));
+// Section fade-in on scroll
+const sections = document.querySelectorAll('.section');
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
+sections.forEach((section) => observer.observe(section));
 
-        // Hamburger menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        const kioskToggle = document.querySelector('.kiosk-toggle');
-        const kioskSection = document.querySelector('#kiosk-spaces');
-        const modal = document.querySelector('#kiosk-modal');
-        const modalClose = document.querySelector('.modal-close');
-        const modalTitle = document.querySelector('#modal-title');
-        const modalSqft = document.querySelector('#modal-sqft');
-        const modalRental = document.querySelector('#modal-rental');
-        const modalShop = document.querySelector('#modal-shop');
-        const mainImage = document.querySelector('#main-image');
-        const thumbnailGrid = document.querySelector('#thumbnail-grid');
-        const imageLightbox = document.querySelector('#image-lightbox');
-        const lightboxImage = document.querySelector('#lightbox-image');
-        const lightboxClose = document.querySelector('.lightbox-close');
+// Hamburger menu toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const kioskToggle = document.querySelector('.kiosk-toggle');
+const kioskSection = document.querySelector('#kiosk-spaces');
+const modal = document.querySelector('#kiosk-modal');
+const modalClose = document.querySelector('.modal-close');
+const modalTitle = document.querySelector('#modal-title');
+const modalSqft = document.querySelector('#modal-sqft');
+const modalRental = document.querySelector('#modal-rental');
+const modalShop = document.querySelector('#modal-shop');
+const modalNotes = document.querySelector('#modal-notes');
+const mainImage = document.querySelector('#main-image');
+const thumbnailGrid = document.querySelector('#thumbnail-grid');
+const imageLightbox = document.querySelector('#image-lightbox');
+const lightboxImage = document.querySelector('#lightbox-image');
+const lightboxClose = document.querySelector('.lightbox-close');
+const prevImageBtn = document.querySelector('.prev-image-btn');
+const nextImageBtn = document.querySelector('.next-image-btn');
+const prevLightboxBtn = document.querySelector('.prev-lightbox-btn');
+const nextLightboxBtn = document.querySelector('.next-lightbox-btn');
 
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-        });
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+  });
 
-        if (navLinks) {
-            navLinks.querySelectorAll('a').forEach((link) => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    hamburger.textContent = '☰';
-                });
-            });
+  navLinks.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      hamburger.textContent = '☰';
+    });
+  });
+}
+
+// Kiosk section toggle
+if (kioskToggle && kioskSection) {
+  kioskToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    kioskSection.classList.toggle('active');
+    kioskSection.scrollIntoView({ behavior: 'smooth' });
+  });
+}
+
+// Kiosk details data
+const kioskData = {
+  "Valankulam UFO": {
+    categories: {
+      Sevanthi: { shops: [{ shop: "VUF1E", size: "10x8 + 20x8", notes: "", images: ["/Sevanthi1.jpg", "/Sevanthi2.jpg"] }] },
+      Malli: { shops: [{ shop: "Malli", size: "", notes: "", images: ["/Malli1.jpg", "/Malli2.jpg"] }] },
+      Kurichi: { shops: [{ shop: "Kurichi", size: "", notes: "", images: ["/Kurichi1.jpg", "/Kurichi2.jpg"] }] },
+      Vaagai: { shops: [{ shop: "VUF2B", size: "20x8", notes: "", images: ["/Vaagai1.jpg", "/Vaagai2.jpg", "/Vaagai3.jpg", "/Vaagai4.jpg"] }] },
+      Vilvam: { shops: [{ shop: "VUF1B", size: "20x8", notes: "", images: ["/Vilvam1.jpg", "/Vilvam2.jpg", "/Vilvam3.jpg", "/Vilvam4.jpg"] }] }
+    },
+    sqft: "10x8 to 20x8",
+    rental: "Contact for pricing"
+  },
+    Valankulam: {
+    categories: {
+      Malligai: { shops: [{ shop: "V1A", size: "10x8", notes: "", images: [""] }] },
+      Delia: { shops: [{ shop: "V2B", size: "10x8", notes: "", images: [""] }] },
+      Alli: { shops: [{ shop: "V3A", size: "10x8", notes: "", images: [""] }] },
+      Senthamarai: { shops: [{ shop: "V4A", size: "10x8", notes: "", images: [""] }] },
+      Roja: { shops: [{ shop: "V6A", size: "", notes: "", images: [""] }] },
+      Thamarai: { shops: [{ shop: "V7A", size: "8x10", notes: "", images: [""] }] },
+      Sembaruthi: { shops: [{ shop: "V8A", size: "6x5", notes: "", images: [""] }] },
+      Naaval: { shops: [{ shop: "Naaval", size: "", notes: "", images: [""] }] },
+      Suriyakandhi: { shops: [{ shop: "Suriyakandhi", size: "", notes: "", images: [""] }] },
+    },
+    sqft: "80-230 sq.ft",
+    rental: "₹25,000-₹35,000/month"
+  },
+  Periyakulam: {
+    categories: {
+      FoodCourt: { shops: [{ shop: "Food Court Shops Small", size: "", notes: "", images: [] }, { shop: "Food Court Shops Large", size: "", notes: "", images: [] }] },
+      ArtWall: { shops: [{ shop: "Garage (Art Wall)", size: "", notes: "", images: [] }] },
+      Months: {
+        shops: [
+          { shop: "சித்திரை", size: "", notes: "", images: [] },
+          { shop: "வைகாசி", size: "", notes: "", images: ["/images/P2A-S.No.9.jpeg"] },
+          { shop: "ஆனி", size: "", notes: "", images: [] },
+          { shop: "ஆடி", size: "", notes: "", images: [] },
+          { shop: "ஆவணி", size: "", notes: "", images: [] },
+          { shop: "புரட்டாசி", size: "", notes: "", images: [] },
+          { shop: "ஐப்பசி", size: "", notes: "", images: [] },
+          { shop: "கார்த்திகை", size: "", notes: "", images: [] },
+          { shop: "மார்கழி", size: "", notes: "", images: [] },
+          { shop: "தை", size: "", notes: "", images: [] },
+          { shop: "மாசி", size: "", notes: "", images: [] },
+          { shop: "பங்குனி", size: "", notes: "", images: [] }
+        ]
+      }
+    },
+    sqft: "80-224 sq.ft",
+    rental: "₹25,000-₹40,000/month"
+  },
+  Kurichi: {
+    categories: {
+      Default: {
+        shops: [
+          { shop: "K1", size: "200-330 sq.ft", notes: "", images: ["/K1-S.No.18_1.jpeg", "/K1-S.No.18_2.jpeg", "/K1-S.No.18_3.jpeg"] },
+          { shop: "K2", size: "200-330 sq.ft", notes: "", images: ["/K2-S.No.19.jpeg"] },
+          { shop: "K3", size: "200-330 sq.ft", notes: "", images: ["/K3-S.No.20.jpeg"] },
+          { shop: "K4", size: "200-330 sq.ft", notes: "", images: ["/K4-S.No.21.jpeg"] }
+        ]
+      }
+    },
+    sqft: "200-330 sq.ft",
+    rental: "₹35,000-₹45,000/month"
+  },
+  Krishnampathy: {
+    categories: {
+      Default: {
+        shops: [
+          { shop: "KR1", size: "36 sq.ft", notes: "", images: ["/Kr-1-S.NO.1.jpeg"] },
+          { shop: "KR-O-1", size: "36 sq.ft", notes: "", images: ["/Kr-O-1-S.NO.2.jpeg"] }
+        ]
+      }
+    },
+    sqft: "36 sq.ft",
+    rental: "₹25,000/month"
+  },
+    Selvachinthamani: {
+    categories: {
+      Manikam: { shops: [{ shop: "S1B", size: "20’x8’ = 160sq. ft", notes: "", images: [""] }] },
+      Mutthu: { shops: [{ shop: "S2B", size: "20’x8’ = 160sq. ft", notes: "", images: [""] }] },
+      Senkar: { shops: [{ shop: "S3B", size: "20’x8’ = 160sq. ft", notes: "", images: [""] }] },
+      Maragatham: { shops: [{ shop: "S4B", size: "20’x8’ = 160sq. ft", notes: "", images: [""] }] },
+      Pushparagam: { shops: [{ shop: "S5B", size: "20’x8’ = 160sq. ft", notes: "", images: [""] }] },
+      "Vajram & Vaiduriyum": { shops: [{ shop: "S6B , SB7", size: "20’x8’ = 160sq. ft", notes: "with Top Floor", images: [""] }] },
+      "Nilam & Gomethagam": { shops: [{ shop: "S8B, S9B", size: "20’x8’ = 160sq. ft", notes: "With Top Floor", images: [""] }] },
+      Thangam: { shops: [{ shop: "SB10", size: "20’x8’ = 160sq. ft", notes: "", images: [""] }] }
+    },
+    sqft: "160 sq.ft",
+    rental: "₹30,000/month"
+  },
+  Kumarasamy: {
+    categories: {
+      Default: {
+        shops: [
+          { shop: "KS-O-1", size: "36 sq.ft", notes: "", images: ["/KS-O-1-S-NO-3.jpeg"] },
+          { shop: "KS-O-2", size: "36 sq.ft", notes: "", images: ["/KS-O-2-S-NO-4.jpeg"] },
+          { shop: "KS-O-3", size: "36 sq.ft", notes: "", images: ["/KS-O-3-S-NO-5.jpeg"] }
+        ]
+      }
+    },
+    sqft: "36 sq.ft",
+    rental: "Contact for pricing"
+  }
+};
+
+// Open modal on lake card click
+document.querySelectorAll('.kiosk-lake-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const lake = card.dataset.lake;
+    const data = kioskData[lake];
+    if (!data) {
+      console.error(`No data found for lake: ${lake}`);
+      Swal.fire({
+        title: 'Error',
+        text: `No data found for lake: ${lake}`,
+        icon: 'error',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#4CAF50'
+      });
+      return;
+    }
+
+    // Store current lake and default category
+    mainImage.dataset.lake = lake;
+    mainImage.dataset.category = Object.keys(data.categories)[0]; // Default to first category
+    mainImage.dataset.shop = data.categories[mainImage.dataset.category].shops[0].shop; // Default to first shop
+    mainImage.dataset.index = 0;
+
+    // Populate category buttons
+    const categoryGrid = document.createElement('div');
+    categoryGrid.classList.add('category-grid');
+    Object.keys(data.categories).forEach(category => {
+      const button = document.createElement('button');
+      button.classList.add('category-btn');
+      button.textContent = category;
+      button.dataset.category = category;
+      if (category === mainImage.dataset.category) button.classList.add('active');
+      button.setAttribute('aria-label', `Select ${category} category`);
+      categoryGrid.appendChild(button);
+    });
+
+    // Populate shop dropdown
+    const shopSelect = document.createElement('select');
+    shopSelect.classList.add('shop-select');
+    shopSelect.setAttribute('aria-label', 'Select shop');
+    const shops = data.categories[mainImage.dataset.category].shops;
+    shops.forEach(shop => {
+      const option = document.createElement('option');
+      option.value = shop.shop;
+      option.textContent = shop.shop;
+      if (shop.shop === mainImage.dataset.shop) option.selected = true;
+      shopSelect.appendChild(option);
+    });
+
+    // Populate modal with default category and shop
+    updateModalContent(lake, mainImage.dataset.category, mainImage.dataset.shop);
+
+    // Insert category grid and shop dropdown into modal
+    const modalImageGallery = document.querySelector('.modal-image-gallery');
+    modalImageGallery.innerHTML = ''; // Clear existing content
+    modalImageGallery.appendChild(categoryGrid);
+    modalImageGallery.appendChild(shopSelect);
+    modalImageGallery.appendChild(prevImageBtn);
+    modalImageGallery.appendChild(mainImage);
+    modalImageGallery.appendChild(nextImageBtn);
+    modalImageGallery.appendChild(thumbnailGrid);
+
+    modal.classList.add('active');
+    console.log(`Modal opened for lake: ${lake}`);
+  });
+});
+
+// Category button click handler
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('category-btn')) {
+    const lake = mainImage.dataset.lake;
+    const category = e.target.dataset.category;
+    mainImage.dataset.category = category;
+    mainImage.dataset.shop = kioskData[lake].categories[category].shops[0].shop; // Default to first shop
+    mainImage.dataset.index = 0;
+
+    // Update active button
+    document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+    e.target.classList.add('active');
+
+    // Update shop dropdown
+    const shopSelect = document.querySelector('.shop-select');
+    if (shopSelect) {
+      shopSelect.innerHTML = '';
+      const shops = kioskData[lake].categories[category].shops;
+      shops.forEach(shop => {
+        const option = document.createElement('option');
+        option.value = shop.shop;
+        option.textContent = shop.shop;
+        if (shop.shop === mainImage.dataset.shop) option.selected = true;
+        shopSelect.appendChild(option);
+      });
+    }
+
+    // Update modal content
+    updateModalContent(lake, category, mainImage.dataset.shop);
+    console.log(`Category changed to: ${category}`);
+  }
+});
+
+// Shop dropdown change handler
+document.addEventListener('change', (e) => {
+  if (e.target.classList.contains('shop-select')) {
+    const lake = mainImage.dataset.lake;
+    const category = mainImage.dataset.category;
+    const shop = e.target.value;
+    mainImage.dataset.shop = shop;
+    mainImage.dataset.index = 0;
+
+    // Update modal content
+    updateModalContent(lake, category, shop);
+    console.log(`Shop changed to: ${shop}`);
+  }
+});
+
+// Function to update modal content
+function updateModalContent(lake, category, shopId) {
+  const data = kioskData[lake];
+  if (!data || !data.categories[category]) {
+    console.error(`Invalid lake or category: ${lake}, ${category}`);
+    Swal.fire({
+      title: 'Error',
+      text: `Invalid lake or category: ${lake}, ${category}`,
+      icon: 'error',
+      confirmButtonText: 'OK',
+      confirmButtonColor: '#4CAF50'
+    });
+    return;
+  }
+
+  const shopData = data.categories[category].shops.find(s => s.shop === shopId);
+  if (!shopData) {
+    console.error(`Shop not found: ${shopId}`);
+    Swal.fire({
+      title: 'Error',
+      text: `Shop not found: ${shopId}`,
+      icon: 'error',
+      confirmButtonText: 'OK',
+      confirmButtonColor: '#4CAF50'
+    });
+    return;
+  }
+
+  const images = shopData.images || [];
+
+  // Populate modal
+  if (modalShop) modalShop.textContent = `Shop ID: ${shopData.shop.toUpperCase()}`;
+  if (modalTitle) modalTitle.textContent = `${lake} Lake - ${category}`;
+  if (modalSqft) modalSqft.textContent = `Size: ${shopData.size || data.sqft}`;
+  if (modalRental) modalRental.textContent = `Rental Value: ${data.rental}`;
+  if (modalNotes) modalNotes.textContent = `Notes: ${shopData.notes || 'N/A'}`;
+
+  // Populate main image and thumbnails
+  const firstImageSrc = images.length > 0 ? images[0] : 'https://via.placeholder.com/200x150?text=No+Image';
+  if (mainImage) {
+    mainImage.style.backgroundImage = `url('${firstImageSrc}')`;
+    mainImage.dataset.src = firstImageSrc;
+    mainImage.dataset.shop = shopData.shop;
+    mainImage.innerHTML = `<span class="image-counter">1/${images.length || 1}</span>`;
+    mainImage.style.pointerEvents = images.length > 0 ? 'auto' : 'none'; // Disable clicks if no images
+  }
+
+  if (thumbnailGrid) {
+    thumbnailGrid.innerHTML = '';
+    if (images.length === 0) {
+      const noImageDiv = document.createElement('div');
+      noImageDiv.classList.add('no-image');
+      noImageDiv.textContent = 'No images available';
+      thumbnailGrid.appendChild(noImageDiv);
+    } else {
+      images.forEach((src, index) => {
+        const thumbDiv = document.createElement('div');
+        thumbDiv.classList.add('thumbnail');
+        if (index === 0) thumbDiv.classList.add('active');
+        const thumbSrc = src || 'https://via.placeholder.com/200x150?text=No+Image';
+        thumbDiv.style.backgroundImage = `url('${thumbSrc}')`;
+        thumbDiv.dataset.src = thumbSrc;
+        thumbDiv.dataset.shop = shopData.shop;
+        thumbDiv.dataset.index = index;
+        thumbDiv.setAttribute('aria-label', `Thumbnail for ${shopData.shop}`);
+        thumbnailGrid.appendChild(thumbDiv);
+      });
+    }
+  }
+
+  // Update navigation buttons
+  updateNavButtons(images.length || 1);
+}
+
+// Thumbnail click handler
+if (thumbnailGrid) {
+  thumbnailGrid.addEventListener('click', (e) => {
+    if (e.target.classList.contains('thumbnail')) {
+      const index = parseInt(e.target.dataset.index);
+      const lake = mainImage.dataset.lake;
+      const category = mainImage.dataset.category;
+      const shop = e.target.dataset.shop;
+      const images = kioskData[lake].categories[category].shops.find(s => s.shop === shop).images;
+
+      mainImage.style.backgroundImage = `url('${e.target.dataset.src}')`;
+      mainImage.dataset.src = e.target.dataset.src;
+      mainImage.dataset.index = index;
+      mainImage.innerHTML = `<span class="image-counter">${index + 1}/${images.length}</span>`;
+
+      thumbnailGrid.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+      e.target.classList.add('active');
+
+      updateNavButtons(images.length);
+      console.log(`Thumbnail clicked: index ${index}`);
+    }
+  });
+}
+
+// Modal navigation button handlers
+if (prevImageBtn) {
+  prevImageBtn.addEventListener('click', () => {
+    const currentIndex = parseInt(mainImage.dataset.index);
+    if (currentIndex > 0) {
+      updateModalImage(currentIndex - 1);
+    }
+  });
+}
+
+if (nextImageBtn) {
+  nextImageBtn.addEventListener('click', () => {
+    const lake = mainImage.dataset.lake;
+    const category = mainImage.dataset.category;
+    const shop = mainImage.dataset.shop;
+    const images = kioskData[lake].categories[category].shops.find(s => s.shop === shop).images;
+    const currentIndex = parseInt(mainImage.dataset.index);
+    if (currentIndex < images.length - 1) {
+      updateModalImage(currentIndex + 1);
+    }
+  });
+}
+
+// Function to update modal image
+function updateModalImage(index) {
+  const lake = mainImage.dataset.lake;
+  const category = mainImage.dataset.category;
+  const shop = mainImage.dataset.shop;
+  const images = kioskData[lake].categories[category].shops.find(s => s.shop === shop).images;
+
+  mainImage.style.backgroundImage = `url('${images[index]}')`;
+  mainImage.dataset.src = images[index];
+  mainImage.dataset.index = index;
+  mainImage.innerHTML = `<span class="image-counter">${index + 1}/${images.length}</span>`;
+
+  thumbnailGrid.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+  thumbnailGrid.querySelector(`.thumbnail[data-index="${index}"]`).classList.add('active');
+
+  updateNavButtons(images.length);
+  console.log(`Modal image updated to index: ${index}`);
+}
+
+// Open lightbox on main image click
+if (mainImage) {
+  mainImage.addEventListener('click', () => {
+    if (!mainImage.dataset.lake || !mainImage.dataset.category || !mainImage.dataset.shop) {
+      console.error('Missing data on mainImage:', mainImage.dataset);
+      Swal.fire({
+        title: 'Error',
+        text: 'Unable to open image due to missing data.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#4CAF50'
+      });
+      return;
+    }
+
+    const lake = mainImage.dataset.lake;
+    const category = mainImage.dataset.category;
+    const shop = mainImage.dataset.shop;
+    const index = parseInt(mainImage.dataset.index) || 0;
+    const shopData = kioskData[lake].categories[category].shops.find(s => s.shop === shop);
+
+    if (!shopData || !shopData.images || shopData.images.length === 0) {
+      Swal.fire({
+        title: 'No Images',
+        text: 'No images are available for this shop.',
+        icon: 'info',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#4CAF50'
+      });
+      return;
+    }
+
+    const imageSrc = shopData.images[index] || 'https://via.placeholder.com/200x150?text=No+Image';
+    lightboxImage.src = imageSrc;
+    lightboxImage.alt = `Kiosk Image ${shop}`;
+    lightboxImage.dataset.lake = lake;
+    lightboxImage.dataset.category = category;
+    lightboxImage.dataset.shop = shop;
+    lightboxImage.dataset.index = index;
+
+    const lightboxCounter = imageLightbox.querySelector('.image-counter');
+    if (lightboxCounter) {
+      lightboxCounter.textContent = `${index + 1}/${shopData.images.length}`;
+    }
+
+    updateLightboxNavButtons(shopData.images.length);
+    imageLightbox.classList.add('active');
+    console.log(`Lightbox opened for ${lake}, ${category}, ${shop}, image ${index + 1}`);
+  });
+}
+
+// Lightbox navigation button handlers
+if (prevLightboxBtn) {
+  prevLightboxBtn.addEventListener('click', () => {
+    const currentIndex = parseInt(lightboxImage.dataset.index);
+    if (currentIndex > 0) {
+      updateLightboxImage(currentIndex - 1);
+    }
+  });
+}
+
+if (nextLightboxBtn) {
+  nextLightboxBtn.addEventListener('click', () => {
+    const lake = lightboxImage.dataset.lake;
+    const category = lightboxImage.dataset.category;
+    const shop = lightboxImage.dataset.shop;
+    const images = kioskData[lake].categories[category].shops.find(s => s.shop === shop).images;
+    const currentIndex = parseInt(lightboxImage.dataset.index);
+    if (currentIndex < images.length - 1) {
+      updateLightboxImage(currentIndex + 1);
+    }
+  });
+}
+
+// Function to update lightbox image
+function updateLightboxImage(index) {
+  const lake = lightboxImage.dataset.lake;
+  const category = lightboxImage.dataset.category;
+  const shop = lightboxImage.dataset.shop;
+  const shopData = kioskData[lake].categories[category].shops.find(s => s.shop === shop);
+  if (!shopData || !shopData.images) {
+    console.error(`No images for shop: ${shop}`);
+    return;
+  }
+
+  const imageSrc = shopData.images[index] || 'https://via.placeholder.com/200x150?text=No+Image';
+  lightboxImage.src = imageSrc;
+  lightboxImage.dataset.index = index;
+  lightboxImage.alt = `Kiosk Image ${shop}`;
+
+  const lightboxCounter = imageLightbox.querySelector('.image-counter');
+  if (lightboxCounter) {
+    lightboxCounter.textContent = `${index + 1}/${shopData.images.length}`;
+  }
+
+  // Sync modal
+  mainImage.style.backgroundImage = `url(${imageSrc})`;
+  mainImage.dataset.index = index;
+  mainImage.innerHTML = `<span class="image-counter">${index + 1}/${shopData.images.length}</span>`;
+  modalShop.textContent = `Shop ID: ${shop.toUpperCase()}`;
+
+  const thumbnails = thumbnailGrid.querySelectorAll('.thumbnail');
+  thumbnails.forEach(thumb => thumb.classList.remove('active'));
+  if (thumbnails[index]) {
+    thumbnails[index].classList.add('active');
+  }
+
+  updateNavButtons(shopData.images.length);
+  updateLightboxNavButtons(shopData.images.length);
+  console.log(`Lightbox image updated to index: ${index}`);
+}
+
+// Function to update modal navigation buttons
+function updateNavButtons(totalImages) {
+  const currentIndex = parseInt(mainImage.dataset.index);
+  if (prevImageBtn) prevImageBtn.disabled = currentIndex === 0;
+  if (nextImageBtn) nextImageBtn.disabled = currentIndex === totalImages - 1;
+}
+
+// Function to update lightbox navigation buttons
+function updateLightboxNavButtons(totalImages) {
+  const currentIndex = parseInt(lightboxImage.dataset.index);
+  if (prevLightboxBtn) prevLightboxBtn.disabled = currentIndex === 0;
+  if (nextLightboxBtn) nextLightboxBtn.disabled = currentIndex === totalImages - 1;
+}
+
+// Close modal
+if (modalClose) {
+  modalClose.addEventListener('click', () => {
+    modal.classList.remove('active');
+  });
+}
+
+// Close modal on outside click
+if (modal) {
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+    }
+  });
+}
+
+// Close lightbox
+if (lightboxClose) {
+  lightboxClose.addEventListener('click', () => {
+    imageLightbox.classList.remove('active');
+  });
+}
+
+// Close lightbox on outside click
+if (imageLightbox) {
+  imageLightbox.addEventListener('click', (e) => {
+    if (e.target === imageLightbox) {
+      imageLightbox.classList.remove('active');
+    }
+  });
+}
+
+// Smooth scroll for Inquire Now button
+document.querySelectorAll('.inquire-now').forEach(button => {
+  button.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.classList.remove('active');
+    imageLightbox.classList.remove('active');
+    const contactSection = document.querySelector('#contact');
+    contactSection.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Keyboard navigation for accessibility
+if (document) {
+  document.addEventListener('keydown', (e) => {
+    if (modal.classList.contains('active') && !imageLightbox.classList.contains('active')) {
+      const currentIndex = parseInt(mainImage.dataset.index);
+      const lake = mainImage.dataset.lake;
+      const category = mainImage.dataset.category;
+      const shop = mainImage.dataset.shop;
+      const images = kioskData[lake]?.categories[category]?.shops.find(s => s.shop === shop)?.images || [];
+      if (e.key === 'ArrowLeft' && currentIndex > 0) {
+        updateModalImage(currentIndex - 1);
+      } else if (e.key === 'ArrowRight' && currentIndex < images.length - 1) {
+        updateModalImage(currentIndex + 1);
+      } else if (e.key === 'Escape') {
+        modal.classList.remove('active');
+      }
+    } else if (imageLightbox.classList.contains('active')) {
+      const currentIndex = parseInt(lightboxImage.dataset.index);
+      const lake = lightboxImage.dataset.lake;
+      const category = lightboxImage.dataset.category;
+      const shop = lightboxImage.dataset.shop;
+      const images = kioskData[lake]?.categories[category]?.shops.find(s => s.shop === shop)?.images || [];
+      if (e.key === 'ArrowLeft' && currentIndex > 0) {
+        updateLightboxImage(currentIndex - 1);
+      } else if (e.key === 'ArrowRight' && currentIndex < images.length - 1) {
+        updateLightboxImage(currentIndex + 1);
+      } else if (e.key === 'Escape') {
+        imageLightbox.classList.remove('active');
+      }
+    }
+  });
+}
+
+// SweetAlert2 Popup for Toll-Free Number
+document.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('tollFreePopupShown')) {
+    setTimeout(() => {
+      Swal.fire({
+        title: 'Toll-Free Number',
+        text: 'For urgent inquiries, call us at 18001230939',
+        icon: 'info',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#4CAF50',
+        background: '#F5F5F5',
+        customClass: {
+          popup: 'sweet-alert-popup',
+          title: 'sweet-alert-title',
+          content: 'sweet-alert-content',
+          confirmButton: 'sweet-alert-button'
         }
+      }).then(() => {
+        localStorage.setItem('tollFreePopupShown', 'true');
+      });
+    }, 3000);
+  }
 
-        // Kiosk section toggle
-        if (kioskToggle) {
-            kioskToggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                kioskSection.classList.toggle('active');
-                kioskSection.scrollIntoView({ behavior: 'smooth' });
-            });
+  const tollFreeBtn = document.getElementById('toll-free-btn');
+  if (tollFreeBtn) {
+    tollFreeBtn.addEventListener('click', () => {
+      Swal.fire({
+        title: 'Toll-Free Number',
+        text: 'For urgent inquiries, call us at 18001230939',
+        icon: 'info',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#4CAF50',
+        background: '#F5F5F5',
+        customClass: {
+          popup: 'sweet-alert-popup',
+          title: 'sweet-alert-title',
+          content: 'sweet-alert-content',
+          confirmButton: 'sweet-alert-button'
         }
+      });
+    });
+  }
+});
 
-        // Kiosk details data
-        const kioskData = {
-            Kumarasamy: {
-                images: [
-                    { src: '/KS-O-1, S. NO. 3...jpeg', shop: 'KS-O-1' },
-                    { src: '/KS-O-1, S. NO. 3..jpeg', shop: 'KS-O-1' },
-                    { src: '/KS-O-1, S. NO. 3.jpeg', shop: 'KS-O-1' },
-                    { src: '/KS-O-2, S. NO. 4..jpeg', shop: 'KS-O-2' },
-                    { src: '/KS-O-2, S. NO. 4.jpeg', shop: 'KS-O-2' },
-                    { src: '/KS-O-3, S. NO. 5.jpeg', shop: 'KS-O-3' },
-                ],
-                sqft: '36 sq.ft',
-                rental: 'Contact for pricing'
-            },
-            Krishnampathy: {
-                images: [
-                    { src: '/Kr-1 S.NO.1.jpeg', shop: 'KR1' },
-                    { src: '/Kr-O-1 S.NO.2.jpeg', shop: 'KR-O-1' }
-                ],
-                sqft: '36 sq.ft',
-                rental: '₹25,000/month'
-            },
-            Periyakulam: {
-                images: [
-                    { src: '/images/P2D, S.No. 6...jpeg', shop: 'P2D' },
-                    { src: '/images/P1B, S.No. 7.jpeg', shop: 'P1B' },
-                    { src: '/images/P1D, S.No.8.jpeg', shop: 'P1D' },
-                    { src: '/images/P2A, S.No. 9..jpeg', shop: 'P2A' },
-                    { src: '/images/P1B, S.No.7.jpeg', shop: 'P1A' },
-                    { src: '/images/Floating_Deck.jpg', shop: 'FLOATING DECK' },
-                    { src: '/images/P3A.jpg', shop: 'P3A' },
-                    { src: '/images/P4A.jpg', shop: 'P4A' },
-                    { src: '/images/P-A-1.jpg', shop: 'P-A-1' },
-                    { src: '/images/P-A-2.jpg', shop: 'P-A-2' },
-                    { src: '/images/P-F-1.jpg', shop: 'P-F-1' },
-                    { src: '/images/P-H-1.jpg', shop: 'P-H-1' }
-                ],
-                sqft: '80-224 sq.ft',
-                rental: '₹25,000-₹40,000/month'
-            },
-            Kurichi: {
-                images: [
-                    { src: '/K1-S.No. 18_1.jpeg', shop: 'K1' },
-                    { src: '/K1-S.No. 18_2.jpeg', shop: 'K1' },
-                    { src: '/K1-S.No. 18_3.jpeg', shop: 'K1' },
-                    { src: '/K2-S.No. 19.jpeg', shop: 'K2' },
-                    { src: '/K3-S.No. 20.jpeg', shop: 'K3' },
-                    { src: '/K4-S.No. 21.jpeg', shop: 'K4' }
-                ],
-                sqft: '200-330 sq.ft',
-                rental: '₹35,000-₹45,000/month'
-            },
-            Valankulam: {
-                images: [
-                    { src: '/v1.jpeg', shop: 'V2A' },
-                    { src: '/v2.jpeg', shop: 'V1A' },
-                    { src: '/v3.jpeg', shop: 'V3A' },
-                    { src: '/v4.jpeg', shop: 'V4A' },
-                    { src: '/v5.jpeg', shop: 'V5A' },
-                    { src: '/v6.jpeg', shop: 'V6A' },
-                    { src: '/v7.jpeg', shop: 'V7A' },
-                    { src: '/v8.jpeg', shop: 'V8A' },
-                    { src: '/v9.jpeg', shop: 'V2B' },
-                    { src: '/v10.jpeg', shop: 'V1B' },
-                    { src: '/v11.jpeg', shop: 'V1C' },
-                    { src: '/v12.jpeg', shop: 'V2C' },
-                    { src: '/v13.jpeg', shop: 'V1F' },
-                    { src: '/v14.jpeg', shop: 'V2F' },
-                    { src: '/v15.jpeg', shop: 'V-FC-1' },
-                    { src: '/v16.jpeg', shop: 'V-FC-2' },
-                    { src: '/v17.jpeg', shop: 'V-FC-3' },
-                    { src: '/v18.jpeg', shop: 'V-FC-4' }
-                ],
-                sqft: '80-230 sq.ft',
-                rental: '₹25,000-₹35,000/month'
-            },
-            "Valankulam UFO": {
-                images: [
-                    { src: '/Sevanthi2.jpg', shop: 'VUF1E' },
-                    { src: '/Sevanthi1.jpg', shop: 'VUF1E' },
-                    { src: '/Malli2.jpg', shop: 'Malli' },
-                    { src: '/Malli1.jpg', shop: 'Malli' },
-                    { src: '/Kurichi2.jpg', shop: 'Kurichi' },
-                    { src: '/Kurichi1.jpg', shop: 'Kurichi' },
-                    { src: '/Vaagai2.jpg', shop: 'VUF2B' },
-                    { src: '/Vaagai1.jpg', shop: 'VUF2B' },
-                    { src: '/Vaagai3.jpg', shop: 'VUF2B' },
-                    { src: '/Vaagai4.jpg', shop: 'VUF2B' },
-                    { src: '/Vilvam2.jpg', shop: 'VUF1B' },
-                    { src: '/Vilvam1.jpg', shop: 'VUF1B' },
-                    { src: '/Vilvam3.jpg', shop: 'VUF1B' },
-                    { src: '/Vilvam4.jpg', shop: 'VUF1B' }
-                ],
-                sqft: '10x8 to 20x8',
-                rental: 'Contact for pricing'
-            },
+// Copy to Clipboard Functionality
+const copyBtn = document.querySelector('.copy-btn');
+const tollFreeLink = document.querySelector('.toll-free-link');
 
+if (copyBtn && tollFreeLink) {
+  copyBtn.addEventListener('click', () => {
+    const number = tollFreeLink.textContent;
+    navigator.clipboard.writeText(number).then(() => {
+      Swal.fire({
+        title: 'Copied!',
+        text: 'Toll-Free number copied to clipboard.',
+        icon: 'success',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#4CAF50',
+        background: '#F5F5F5',
+        customClass: {
+          popup: 'sweet-alert-popup',
+          title: 'sweet-alert-title',
+          content: 'sweet-alert-content',
+          confirmButton: 'sweet-alert-button'
+        },
+        timer: 1500,
+        showConfirmButton: false
+      });
+    }).catch(() => {
+      Swal.fire({
+        title: 'Error',
+        text: 'Failed to copy number.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#4CAF50',
+        background: '#F5F5F5'
+      });
+    });
+  });
+}
 
-            Selvachinthamani: {
-                images: [
-                    { src: '/s1.jpeg', shop: 'S1' },
-                    { src: '/s2.jpg', shop: 'S2' },
-                    { src: '/s3.jpeg', shop: 'S3' },
-                    { src: '/s4.jpg', shop: 'S4' },
-                    { src: '/s5.jpeg', shop: 'S5' },
-                    { src: '/s6.jpg', shop: 'S10' }
-                ],
-                sqft: '160 sq.ft',
-                rental: '₹30,000/month'
-            }
-        };
+const closeTollFreeBtn = document.querySelector('.close-toll-free');
+if (closeTollFreeBtn) {
+  closeTollFreeBtn.addEventListener('click', () => {
+    document.querySelector('.toll-free-display').style.display = 'none';
+  });
+}
 
-        // Open modal on lake card click
-        document.querySelectorAll('.kiosk-lake-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const lake = card.dataset.lake;
-                const data = kioskData[lake];
-
-                // Store current lake for navigation
-                mainImage.dataset.lake = lake;
-                mainImage.dataset.index = 0;
-
-                // Populate modal
-                modalShop.textContent = `Shop ID: ${data.images[0].shop.toUpperCase()}`;
-                modalTitle.textContent = `${lake} Lake Kiosk`;
-                modalSqft.textContent = `Size: ${data.sqft}`;
-                modalRental.textContent = `Rental Value: ${data.rental}`;
-
-                // Populate main image and thumbnails
-                const firstImageSrc = data.images[0].src || 'https://via.placeholder.com/200x150?text=No+Image';
-                mainImage.style.backgroundImage = `url('${firstImageSrc}')`;
-                mainImage.dataset.src = firstImageSrc;
-                mainImage.innerHTML = `<span class="image-counter">1/${data.images.length}</span>`;
-
-                thumbnailGrid.innerHTML = '';
-                data.images.forEach((image, index) => {
-                    const thumbDiv = document.createElement('div');
-                    thumbDiv.classList.add('thumbnail');
-                    if (index === 0) thumbDiv.classList.add('active');
-                    const thumbSrc = image.src || 'https://via.placeholder.com/200x150?text=No+Image';
-                    thumbDiv.style.backgroundImage = `url('${thumbSrc}')`;
-                    thumbDiv.dataset.src = thumbSrc;
-                    thumbDiv.dataset.shop = image.shop;
-                    thumbDiv.dataset.index = index;
-                    thumbDiv.setAttribute('aria-label', `Thumbnail for ${image.shop}`);
-                    thumbnailGrid.appendChild(thumbDiv);
-                });
-
-                // Update navigation buttons
-                updateNavButtons(data.images.length);
-
-                modal.classList.add('active');
-            });
-        });
-
-        // Thumbnail click handler
-        thumbnailGrid.addEventListener('click', (e) => {
-            if (e.target.classList.contains('thumbnail')) {
-                updateImage(e.target.dataset.index, e.target.parentElement.children.length);
-                e.target.parentElement.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
-                e.target.classList.add('active');
-            }
-        });
-
-        // Modal navigation button handlers
-        const prevImageBtn = document.querySelector('.prev-image-btn');
-        const nextImageBtn = document.querySelector('.next-image-btn');
-
-        if (prevImageBtn) {
-            prevImageBtn.addEventListener('click', () => {
-                const currentIndex = parseInt(mainImage.dataset.index);
-                if (currentIndex > 0) {
-                    updateImage(currentIndex - 1, thumbnailGrid.children.length);
-                }
-            });
-        }
-
-        if (nextImageBtn) {
-            nextImageBtn.addEventListener('click', () => {
-                const currentIndex = parseInt(mainImage.dataset.index);
-                const totalImages = thumbnailGrid.children.length;
-                if (currentIndex < totalImages - 1) {
-                    updateImage(currentIndex + 1, totalImages);
-                }
-            });
-        }
-
-        // Lightbox navigation button handlers
-        const prevLightboxBtn = document.querySelector('.prev-lightbox-btn');
-        const nextLightboxBtn = document.querySelector('.next-lightbox-btn');
-
-        if (prevLightboxBtn) {
-            prevLightboxBtn.addEventListener('click', () => {
-                const currentIndex = parseInt(lightboxImage.dataset.index);
-                if (currentIndex > 0) {
-                    updateLightboxImage(currentIndex - 1);
-                }
-            });
-        }
-
-        if (nextLightboxBtn) {
-            nextLightboxBtn.addEventListener('click', () => {
-                const currentIndex = parseInt(lightboxImage.dataset.index);
-                const totalImages = kioskData[lightboxImage.dataset.lake].images.length;
-                if (currentIndex < totalImages - 1) {
-                    updateLightboxImage(currentIndex + 1);
-                }
-            });
-        }
-
-        // Function to update modal image
-        function updateImage(index, totalImages) {
-            const thumbnails = thumbnailGrid.querySelectorAll('.thumbnail');
-            const imageSrc = thumbnails[index].dataset.src;
-            const shopName = thumbnails[index].dataset.shop;
-
-            mainImage.style.backgroundImage = `url('${imageSrc}')`;
-            mainImage.dataset.src = imageSrc;
-            mainImage.dataset.index = index;
-            mainImage.innerHTML = `<span class="image-counter">${parseInt(index) + 1}/${totalImages}</span>`;
-            modalShop.textContent = `Shop ID: ${shopName.toUpperCase()}`;
-
-            thumbnails.forEach(thumb => thumb.classList.remove('active'));
-            thumbnails[index].classList.add('active');
-
-            updateNavButtons(totalImages);
-        }
-
-        // Function to update lightbox image
-        function updateLightboxImage(index) {
-            const lake = lightboxImage.dataset.lake;
-            const data = kioskData[lake];
-            const imageSrc = data.images[index].src || 'https://via.placeholder.com/200x150?text=No+Image';
-            const shopName = data.images[index].shop;
-
-            lightboxImage.src = imageSrc;
-            lightboxImage.dataset.index = index;
-            lightboxImage.alt = `Kiosk Image ${shopName}`;
-            const lightboxCounter = imageLightbox.querySelector('.image-counter');
-            if (lightboxCounter) {
-                lightboxCounter.textContent = `${parseInt(index) + 1}/${data.images.length}`;
-            }
-            // Update modal to stay in sync
-            mainImage.style.backgroundImage = `url(${imageSrc})`;
-            mainImage.dataset.index = index;
-            mainImage.innerHTML = `<span class="image-counter">${parseInt(index) + 1}/${data.images.length}</span>`;
-            modalShop.textContent = `Shop ID: ${shopName.toUpperCase()}`;
-
-            const thumbnails = thumbnailGrid.querySelectorAll('.thumbnail');
-            thumbnails.forEach(thumb => thumb.classList.remove('active'));
-            thumbnails[index].classList.add('active');
-
-            updateNavButtons(data.images.length);
-            updateLightboxNavButtons(data.images.length);
-        }
-
-        // Function to update modal navigation buttons
-        function updateNavButtons(totalImages) {
-            const currentIndex = parseInt(mainImage.dataset.index);
-            if (prevImageBtn) prevImageBtn.disabled = currentIndex === 0;
-            if (nextImageBtn) nextImageBtn.disabled = currentIndex === totalImages - 1;
-        }
-
-        // Function to update lightbox navigation buttons
-        function updateLightboxNavButtons(totalImages) {
-            const currentIndex = parseInt(lightboxImage.dataset.index);
-            if (prevLightboxBtn) prevLightboxBtn.disabled = currentIndex === 0;
-            if (nextLightboxBtn) nextLightboxBtn.disabled = currentIndex === totalImages - 1;
-        }
-
-        // Open lightbox on main image click
-        mainImage.addEventListener('click', () => {
-            const imageSrc = mainImage.dataset.src;
-            const lake = mainImage.dataset.lake;
-            const index = parseInt(mainImage.dataset.index);
-            const totalImages = kioskData[lake].images.length;
-
-            lightboxImage.src = imageSrc;
-            lightboxImage.alt = mainImage.getAttribute('aria-label');
-            lightboxImage.dataset.lake = lake;
-            lightboxImage.dataset.index = index;
-            const lightboxCounter = imageLightbox.querySelector('.image-counter');
-            if (lightboxCounter) {
-                lightboxCounter.textContent = `${index + 1}/${totalImages}`;
-            }
-
-            updateLightboxNavButtons(totalImages);
-            imageLightbox.classList.add('active');
-        });
-
-
-        // Close modal
-        modalClose.addEventListener('click', () => {
-            modal.classList.remove('active');
-        });
-
-        // Close modal on outside click
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('active');
-            }
-        });
-
-        // Close lightbox
-        lightboxClose.addEventListener('click', () => {
-            imageLightbox.classList.remove('active');
-        });
-
-        // Close lightbox on outside click
-        imageLightbox.addEventListener('click', (e) => {
-            if (e.target === imageLightbox) {
-                imageLightbox.classList.remove('active');
-            }
-        });
-
-        // Smooth scroll for Inquire Now button
-        document.querySelectorAll('.inquire-now').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                modal.classList.remove('active');
-                imageLightbox.classList.remove('active');
-                const contactSection = document.querySelector('#contact');
-                contactSection.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Keyboard navigation for accessibility
-        document.addEventListener('keydown', (e) => {
-            if (modal.classList.contains('active') && !imageLightbox.classList.contains('active')) {
-                const currentIndex = parseInt(mainImage.dataset.index);
-                const totalImages = thumbnailGrid.children.length;
-                if (e.key === 'ArrowLeft' && currentIndex > 0) {
-                    updateImage(currentIndex - 1, totalImages);
-                } else if (e.key === 'ArrowRight' && currentIndex < totalImages - 1) {
-                    updateImage(currentIndex + 1, totalImages);
-                } else if (e.key === 'Escape') {
-                    modal.classList.remove('active');
-                }
-            } else if (imageLightbox.classList.contains('active')) {
-                const currentIndex = parseInt(lightboxImage.dataset.index);
-                const totalImages = kioskData[lightboxImage.dataset.lake].images.length;
-                if (e.key === 'ArrowLeft' && currentIndex > 0) {
-                    updateLightboxImage(currentIndex - 1);
-                } else if (e.key === 'ArrowRight' && currentIndex < totalImages - 1) {
-                    updateLightboxImage(currentIndex + 1);
-                } else if (e.key === 'Escape') {
-                    imageLightbox.classList.remove('active');
-                }
-            }
-        });
-
-        // SweetAlert2 Popup for Toll-Free Number
-        document.addEventListener('DOMContentLoaded', () => {
-            if (!localStorage.getItem('tollFreePopupShown')) {
-                setTimeout(() => {
-                    Swal.fire({
-                        title: 'Toll-Free Number',
-                        text: 'For urgent inquiries, call us at 18001230939',
-                        icon: 'info',
-                        confirmButtonText: 'OK',
-                        confirmButtonColor: '#4CAF50',
-                        background: '#F5F5F5',
-                        customClass: {
-                            popup: 'sweet-alert-popup',
-                            title: 'sweet-alert-title',
-                            content: 'sweet-alert-content',
-                            confirmButton: 'sweet-alert-button'
-                        }
-                    }).then(() => {
-                        localStorage.setItem('tollFreePopupShown', 'true');
-                    });
-                }, 3000);
-            }
-
-            const tollFreeBtn = document.getElementById('toll-free-btn');
-            if (tollFreeBtn) {
-                tollFreeBtn.addEventListener('click', () => {
-                    Swal.fire({
-                        title: 'Toll-Free Number',
-                        text: 'For urgent inquiries, call us at 18001230939',
-                        icon: 'info',
-                        confirmButtonText: 'OK',
-                        confirmButtonColor: '#4CAF50',
-                        background: '#F5F5F5',
-                        customClass: {
-                            popup: 'sweet-alert-popup',
-                            title: 'sweet-alert-title',
-                            content: 'sweet-alert-content',
-                            confirmButton: 'sweet-alert-button'
-                        }
-                    });
-                });
-            }
-        });
-
-        // Copy to Clipboard Functionality
-        const copyBtn = document.querySelector('.copy-btn');
-        const tollFreeLink = document.querySelector('.toll-free-link');
-
-        if (copyBtn) {
-            copyBtn.addEventListener('click', () => {
-                const number = tollFreeLink.textContent;
-                navigator.clipboard.writeText(number).then(() => {
-                    Swal.fire({
-                        title: 'Copied!',
-                        text: 'Toll-Free number copied to clipboard.',
-                        icon: 'success',
-                        confirmButtonText: 'OK',
-                        confirmButtonColor: '#4CAF50',
-                        background: '#F5F5F5',
-                        customClass: {
-                            popup: 'sweet-alert-popup',
-                            title: 'sweet-alert-title',
-                            content: 'sweet-alert-content',
-                            confirmButton: 'sweet-alert-button'
-                        },
-                        timer: 1500,
-                        showConfirmButton: false
-                    });
-                }).catch(() => {
-                    Swal.fire({
-                        title: 'Error',
-                        text: 'Failed to copy number.',
-                        icon: 'error',
-                        confirmButtonText: 'OK',
-                        confirmButtonColor: '#4CAF50',
-                        background: '#F5F5F5'
-                    });
-                });
-            });
-        }
-
-        const closeTollFreeBtn = document.querySelector('.close-toll-free');
-        if (closeTollFreeBtn) {
-            closeTollFreeBtn.addEventListener('click', () => {
-                document.querySelector('.toll-free-display').style.display = 'none';
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                document.querySelector('.toll-free-display').style.opacity = '1';
-            }, 3000);
-        });
-        /*copyBtn.addEventListener('click', () => {
-            const number = tollFreeLink.textContent;
-            navigator.clipboard.writeText(number).then(() => {
-                alert('Toll-Free number copied to clipboard!');
-            }).catch(() => {
-                alert('Failed to copy number.');
-            });
-        }); */
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    const tollFreeDisplay = document.querySelector('.toll-free-display');
+    if (tollFreeDisplay) {
+      tollFreeDisplay.style.opacity = '1';
+    }
+  }, 3000);
+});
     </script>
 </body>
 
